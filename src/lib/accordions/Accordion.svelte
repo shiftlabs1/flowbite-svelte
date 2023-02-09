@@ -14,13 +14,12 @@
   import classNames from 'classnames';
   import { setContext } from 'svelte';
 
-  export let multiple: boolean = false;
-  export let flush: boolean = false;
-  export let activeClasses: string =
+  export let multiple = false;
+  export let flush = false;
+  export let activeClasses =
     'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800';
-  export let inactiveClasses: string =
-    'text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:dark:bg-gray-800';
-  export let defaultClass: string = 'text-gray-500 dark:text-gray-400';
+  export let inactiveClasses = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:dark:bg-gray-800';
+  export let defaultClass = 'text-gray-500 dark:text-gray-400';
 
   const ctx: AccordionCtxType = {
     flush,

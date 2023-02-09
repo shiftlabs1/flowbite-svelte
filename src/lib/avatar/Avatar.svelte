@@ -4,15 +4,15 @@
   import AvatarPlaceholder from './Placeholder.svelte';
   import Indicator from '$lib/indicators/Indicator.svelte';
 
-  export let src: string = '';
+  export let src = '';
   export let href: string | undefined = undefined;
 
-  export let rounded: boolean = false;
-  export let border: boolean = false;
-  export let stacked: boolean = false;
+  export let rounded = false;
+  export let border = false;
+  export let stacked = false;
 
   export let dot: object | undefined = undefined;
-  export let alt: string = '';
+  export let alt = '';
   export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
   $: dot = dot && { placement: 'top-right', color: 'gray', size: 'lg', ...dot };

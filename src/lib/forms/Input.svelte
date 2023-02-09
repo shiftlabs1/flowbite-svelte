@@ -14,14 +14,15 @@
   export let type: InputType = 'text';
   export let value: string | number = '';
   export let size: FormSizeType | undefined = undefined;
-  export let defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50';
-  export let color: 'base' | 'green' | 'red' = 'base';
+  export let defaultClass = 'block w-full disabled:cursor-not-allowed disabled:opacity-50';
+  export let color: 'base' | 'green' | 'red' | 'primary' = 'base';
 
   const borderClasses = {
     base: 'border-gray-300 dark:border-gray-600',
     tinted: 'border-gray-300 dark:border-gray-500',
     green: 'border-green-500 dark:border-green-400',
-    red: 'border-red-500 dark:border-red-400'
+    red: 'border-red-500 dark:border-red-400',
+    primary: 'border-primary-500 dark:border-primary-400'
   };
 
   const ringClasses = {
