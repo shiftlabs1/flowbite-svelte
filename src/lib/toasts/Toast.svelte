@@ -19,11 +19,12 @@
     | 'navbar'
     | 'navbarUl'
     | 'form'
-    | 'none' = 'blue';
-  export let simple: boolean = false;
+    | 'none'
+    | 'primary' = 'blue';
+  export let simple = false;
   export let position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'none' = 'none';
-  export let open: boolean = true;
-  export let divClass: string = 'w-full max-w-xs p-4';
+  export let open = true;
+  export let divClass = 'w-full max-w-xs p-4';
 
   const positions = {
     'top-left': 'absolute top-5 left-5',
@@ -52,7 +53,7 @@
         <slot name="extra" />
       </div>
       {#if !simple}
-        <CloseButton on:click={() => (open = false)} />
+        <CloseButton on:click={() => (open = false)} {color} />
       {/if}
     </div>
   </Frame>

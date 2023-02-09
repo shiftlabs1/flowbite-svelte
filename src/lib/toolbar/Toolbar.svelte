@@ -6,9 +6,18 @@
   const separators = writable(false);
   setContext('toolbar', separators);
 
-  export let color: 'gray' | 'red' | 'yellow' | 'green' | 'indigo' | 'purple' | 'pink' | 'blue' | 'dark' =
-    'dark';
-  export let embedded: boolean = false;
+  export let color:
+    | 'gray'
+    | 'red'
+    | 'yellow'
+    | 'green'
+    | 'indigo'
+    | 'purple'
+    | 'pink'
+    | 'blue'
+    | 'dark'
+    | 'primary' = 'dark';
+  export let embedded = false;
 
   const bgColors = {
     gray: 'bg-gray-100 dark:bg-gray-200 ',
@@ -19,7 +28,8 @@
     purple: 'bg-purple-100 dark:bg-purple-200 ',
     pink: 'bg-pink-100 dark:bg-pink-200 ',
     blue: 'bg-blue-100 dark:bg-blue-200 ',
-    dark: 'bg-gray-50 dark:bg-gray-700'
+    dark: 'bg-gray-50 dark:bg-gray-700',
+    primary: 'bg-primary-50 dark:bg-primary-700'
     // custom: customBgClass
   };
 
@@ -32,7 +42,8 @@
     purple: 'text-purple-500 dark:text-purple-700',
     pink: 'text-pink-500 dark:text-pink-700',
     blue: 'text-blue-500 dark:text-blue-700',
-    dark: 'text-gray-500 dark:text-gray-400'
+    dark: 'text-gray-500 dark:text-gray-400',
+    primary: 'text-primary-500 dark:text-primary-400'
     // custom: customTextColor
   };
 
@@ -54,7 +65,8 @@
     purple: 'divide-purple-200 dark:divide-purple-700',
     pink: 'divide-pink-200 dark:divide-pink-700',
     blue: 'divide-blue-200 dark:divide-blue-700',
-    dark: 'divide-gray-200 dark:divide-gray-600'
+    dark: 'divide-gray-200 dark:divide-gray-600',
+    primary: 'divide-primary-200 dark:divide-primary-600'
     // custom: customTextColor
   };
 

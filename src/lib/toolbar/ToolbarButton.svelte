@@ -4,8 +4,17 @@
 
   const background = getContext('background');
 
-  export let color: 'default' | 'gray' | 'red' | 'yellow' | 'green' | 'indigo' | 'purple' | 'pink' | 'blue' =
-    'default';
+  export let color:
+    | 'default'
+    | 'gray'
+    | 'red'
+    | 'yellow'
+    | 'green'
+    | 'indigo'
+    | 'purple'
+    | 'pink'
+    | 'blue'
+    | 'primary' = 'default';
   export let name: string | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
   export let size: 'xs' | 'sm' | 'md' = 'md';
@@ -20,7 +29,8 @@
     indigo: 'focus:ring-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-300',
     purple: 'focus:ring-purple-400 hover:bg-purple-200 dark:hover:bg-purple-300',
     pink: 'focus:ring-pink-400 hover:bg-pink-200 dark:hover:bg-pink-300',
-    blue: 'focus:ring-blue-400 hover:bg-blue-200 dark:hover:bg-blue-300'
+    blue: 'focus:ring-blue-400 hover:bg-blue-200 dark:hover:bg-blue-300',
+    primary: 'focus:ring-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300'
   };
 
   const sizing = {

@@ -3,7 +3,7 @@
   import classNames from 'classnames';
 
   export let style: 'dark' | 'light' | 'auto' | 'custom' = 'dark';
-  export let defaultClass: string = 'py-2 px-3 text-sm font-medium';
+  export let defaultClass = 'py-2 px-3 text-sm font-medium';
 
   const styles = {
     dark: 'bg-gray-900 text-white dark:bg-gray-700',
