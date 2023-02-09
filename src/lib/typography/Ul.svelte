@@ -3,7 +3,7 @@
 
   export let list: 'disc' | 'none' | 'decimal' = 'disc';
   export let position: 'inside' | 'outside' = 'inside';
-  export let ulClass: string = 'max-w-md text-gray-500 dark:text-gray-400';
+  export let ulClass = 'max-w-md text-gray-500 dark:text-gray-400';
   let lists = {
     disc: 'list-disc',
     none: 'list-none',

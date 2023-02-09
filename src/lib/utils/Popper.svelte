@@ -6,15 +6,15 @@
   import createEventDispatcher from './createEventDispatcher';
   import Frame from './Frame.svelte';
 
-  export let activeContent: boolean = false;
-  export let arrow: boolean = true;
-  export let offset: number = 8;
+  export let activeContent = false;
+  export let arrow = true;
+  export let offset = 8;
   export let placement: Placement = 'top';
   export let trigger: 'hover' | 'click' = 'hover';
   export let triggeredBy: string | undefined = undefined;
   export let strategy: 'absolute' | 'fixed' = 'absolute';
-  export let open: boolean = false;
-  export let yOnly: boolean = false;
+  export let open = false;
+  export let yOnly = false;
 
   const dispatch = createEventDispatcher();
 
@@ -28,7 +28,7 @@
   let triggerEls: HTMLElement[] = [];
   let popper: Instance;
 
-  let _blocked: boolean = false; // managment of the race condition between focusin and click events
+  let _blocked = false; // managment of the race condition between focusin and click events
   const block = () => ((_blocked = true), setTimeout(() => (_blocked = false), 250));
 
   const showHandler = (ev: Event) => {

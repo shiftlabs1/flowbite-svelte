@@ -1,11 +1,13 @@
 <script lang="ts">
   import classNames from 'classnames';
 
-  export let color: string = 'text-white dark:bg-blue-500';
-  export let bgColor: string = 'bg-blue-600';
-  export let markClass: string = 'px-2 rounded';
+  export let color: 'blue' | 'primary' | string = 'blue';
+  export let bgColor: 'blue' | 'primary' | string = 'blue';
+  export let markClass = 'px-2 rounded';
+  const colorClass = `text-white dark:bg-${color}-500`;
+  const bgColorClass = `bg-${bgColor}-600`;
 </script>
 
-<mark {...$$restProps} class={classNames(markClass, bgColor, color, $$props.class)}>
+<mark {...$$restProps} class={classNames(markClass, bgColorClass, colorClass, $$props.class)}>
   <slot />
 </mark>

@@ -5,9 +5,9 @@
   import Label from './Label.svelte';
 
   // properties forwarding
-  export let color: FormColorType = 'blue';
-  export let custom: boolean = false;
-  export let inline: boolean = false;
+  export let color: FormColorType = 'primary';
+  export let custom = false;
+  export let inline = false;
 
   export let group: (string | number)[] = [];
   export let value: string | number = '';

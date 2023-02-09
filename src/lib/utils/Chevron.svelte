@@ -8,7 +8,7 @@
   import type { ComponentType } from 'svelte';
 
   export let placement: Placement = 'bottom';
-  export let aligned: boolean = false;
+  export let aligned = false;
 
   const icons = {
     top: ChevronUp,

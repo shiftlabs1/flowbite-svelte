@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Action } from 'svelte/action';
 
-  export let tag: string = 'div';
+  export let tag = 'div';
   export let show: boolean;
   export let use: Action = () => {};
 </script>

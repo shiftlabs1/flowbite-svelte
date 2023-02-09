@@ -4,10 +4,10 @@
   // export let controls: boolean = true;
   // export let autoplay: boolean = false;
   export let src: string;
-  export let type: string = 'video/mp4';
-  export let trackSrc: string = '';
-  export let srclang: string = 'en';
-  export let label: string = 'english_captions';
+  export let type = 'video/mp4';
+  export let trackSrc = '';
+  export let srclang = 'en';
+  export let label = 'english_captions';
   // export let attribute = '';
 
   let videoClass = classNames($$props.class);

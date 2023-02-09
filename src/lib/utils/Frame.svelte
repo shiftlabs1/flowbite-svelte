@@ -9,7 +9,7 @@
   setContext('background', true);
   $: setContext('color', color);
 
-  export let tag: string = 'div';
+  export let tag = 'div';
   export let color:
     | 'gray'
     | 'red'
@@ -26,10 +26,11 @@
     | 'navbar'
     | 'navbarUl'
     | 'form'
+    | 'primary'
     | 'none' = 'default';
-  export let rounded: boolean = false;
-  export let border: boolean = false;
-  export let shadow: boolean = false;
+  export let rounded = false;
+  export let border = false;
+  export let shadow = false;
 
   type TransitionFunc = (node: HTMLElement, params: any) => TransitionConfig;
 

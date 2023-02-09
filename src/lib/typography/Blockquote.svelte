@@ -1,12 +1,12 @@
 <script lang="ts">
   import classNames from 'classnames';
 
-  export let border: boolean = false;
-  export let italic: boolean = true;
-  export let borderClass: string = 'border-l-4 border-gray-300 dark:border-gray-500';
-  export let bgClass: string = 'bg-gray-50 dark:bg-gray-800';
-  export let bg: boolean = false;
-  export let baseClass: string = 'font-semibold text-gray-900 dark:text-white';
+  export let border = false;
+  export let italic = true;
+  export let borderClass = 'border-l-4 border-gray-300 dark:border-gray-500';
+  export let bgClass = 'bg-gray-50 dark:bg-gray-800';
+  export let bg = false;
+  export let baseClass = 'font-semibold text-gray-900 dark:text-white';
   export let alignment: 'left' | 'center' | 'right' = 'left';
   let alignmentClasses = {
     left: 'text-left',

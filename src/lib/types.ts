@@ -38,7 +38,7 @@ export interface CheckboxType {
 	helper?: string;
 }
 
-export type Colors = 'blue' | 'gray' | 'red' | 'yellow' | 'purple' | 'green' | 'indigo' | 'pink' | 'white' | 'custom';
+export type Colors = 'blue' | 'gray' | 'red' | 'yellow' | 'purple' | 'green' | 'indigo' | 'pink' | 'white' | 'custom' | 'primary';
 
 export interface DotType {
 	top?: boolean;
@@ -76,7 +76,7 @@ export interface DropdownType {
 	divider?: boolean;
 }
 
-export type FormColorType = 'blue' | 'red' | 'green' | 'purple' | 'teal' | 'yellow' | 'orange'
+export type FormColorType = 'blue' | 'red' | 'green' | 'purple' | 'teal' | 'yellow' | 'orange' | 'primary' | 'cyan'
 
 export type Gradientduotones = 'purple2blue' | 'cyan2blue' | 'green2blue' | 'purple2pink' | 'pink2orange' | 'teal2lime' | 'red2yellow';
 
