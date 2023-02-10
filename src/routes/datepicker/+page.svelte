@@ -55,7 +55,7 @@
 </p>
 
 <ExampleDiv>
-  <Datepicker />
+  <Datepicker color="primary" />
 </ExampleDiv>
 
 <pre class="language-html"><code class="language-html">
@@ -70,7 +70,7 @@
 </p>
 
 <ExampleDiv>
-  <Datepicker name="start" />
+  <Datepicker name="start" color="green" />
 </ExampleDiv>
 
 <pre class="language-html"><code class="language-html">
