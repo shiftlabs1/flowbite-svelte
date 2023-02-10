@@ -33,7 +33,15 @@
     'bottom-right': 'absolute bottom-5 right-5',
     none: ''
   };
-
+  //['form', 'dropdown', 'navbar', 'navbarUl', 'form', 'none']
+  const closeButtonColor =
+    color.includes('form') ||
+    color.includes('dropdown') ||
+    color.includes('navbar') ||
+    color.includes('navbarUl') ||
+    color.includes('none')
+      ? 'defualt'
+      : (color as any);
   let classDiv: string;
   $: classDiv = classNames(divClass, positions[position], $$props.class);
 
@@ -53,7 +61,7 @@
         <slot name="extra" />
       </div>
       {#if !simple}
-        <CloseButton on:click={() => (open = false)} {color} />
+        <CloseButton on:click={() => (open = false)} color={closeButtonColor} />
       {/if}
     </div>
   </Frame>

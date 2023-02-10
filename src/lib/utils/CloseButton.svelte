@@ -15,7 +15,8 @@
     | 'pink'
     | 'blue'
     | 'primary'
-    | 'default' = 'default';
+    | 'default'
+    | 'light' = 'default';
   export let name = 'Close';
   export let size: 'xs' | 'sm' | 'md' = 'md';
 
@@ -30,6 +31,7 @@
     pink: 'focus:ring-pink-400 hover:bg-pink-200 dark:hover:bg-pink-300',
     blue: 'focus:ring-blue-400 hover:bg-blue-200 dark:hover:bg-blue-300',
     primary: 'focus:ring-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300',
+    light: 'focus:bg-gray-50 hover:bg-gray-700 dark:hover:bg-gray-800',
     default: 'focus:ring-gray-300 '
   };
 
