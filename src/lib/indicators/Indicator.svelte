@@ -11,7 +11,8 @@
     | 'indigo'
     | 'yellow'
     | 'teal'
-    | 'none' = 'gray';
+    | 'none'
+    | 'primary' = 'gray';
   export let rounded: boolean = false;
   export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let border: boolean = false;

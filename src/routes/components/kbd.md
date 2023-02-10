@@ -57,9 +57,9 @@ Here’s a list of KBD components that you can use inside any other element.
   import { Kbd } from 'flowbite-svelte'
 </script>
 
-<Kbd class='px-2 py-1.5'>Shift</Kbd>
-<Kbd class='px-2 py-1.5'>Ctrl</Kbd>
-<Kbd class='px-2 py-1.5'>Tab</Kbd>
+<Kbd class='px-2 py-1.5' color="primary">Shift</Kbd>
+<Kbd class='px-2 py-1.5' color="blue">Ctrl</Kbd>
+<Kbd class='px-2 py-1.5' color="cyan">Tab</Kbd>
 <Kbd class='px-2 py-1.5'>Caps Lock</Kbd>
 <Kbd class='px-2 py-1.5'>Esc</Kbd>
 <Kbd class='px-4 py-1.5'>Spacebar</Kbd>
