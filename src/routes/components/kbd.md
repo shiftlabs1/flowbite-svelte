@@ -59,10 +59,10 @@ Here’s a list of KBD components that you can use inside any other element.
 
 <Kbd class='px-2 py-1.5' color="primary">Shift</Kbd>
 <Kbd class='px-2 py-1.5' color="blue">Ctrl</Kbd>
-<Kbd class='px-2 py-1.5' color="cyan">Tab</Kbd>
-<Kbd class='px-2 py-1.5'>Caps Lock</Kbd>
-<Kbd class='px-2 py-1.5'>Esc</Kbd>
-<Kbd class='px-4 py-1.5'>Spacebar</Kbd>
+<Kbd class='px-2 py-1.5' color="yellow">Tab</Kbd>
+<Kbd class='px-2 py-1.5' color="green">Caps Lock</Kbd>
+<Kbd class='px-2 py-1.5' color="indigo">Esc</Kbd>
+<Kbd class='px-4 py-1.5' color="orange">Spacebar</Kbd>
 <Kbd class='px-2 py-1.5'>Enter</Kbd>
 ```
 
@@ -76,7 +76,7 @@ Use this example by nesting an inline KBD component inside a paragraph.
 </script>
 
 <p class="text-gray-500 dark:text-gray-400">
-Please press <Kbd class="px-2 py-1.5">Ctrl</Kbd> + <Kbd class="px-2 py-1.5">Shift</Kbd> + <Kbd class="px-2 py-1.5">R</Kbd> to re-render an MDN page.
+Please press <Kbd class="px-2 py-1.5" color="primary">Ctrl</Kbd> + <Kbd class="px-2 py-1.5" color="lime">Shift</Kbd> + <Kbd class="px-2 py-1.5">R</Kbd> to re-render an MDN page.
 </p>
 ```
 

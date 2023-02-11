@@ -69,7 +69,7 @@ An option of automatic closing of the modal can be enabled by setting the `autoc
     The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
   </p>
   <svelte:fragment slot='footer'>
-    <Button on:click={() => alert('Handle "success"')}>I accept</Button>
+    <Button on:click={() => alert('Handle "success"')} color="green">I accept</Button>
     <Button color="alternative">Decline</Button>
   </svelte:fragment>
 </Modal>

@@ -38,8 +38,44 @@ export interface CheckboxType {
 	helper?: string;
 }
 
-export type Colors = 'blue' | 'gray' | 'red' | 'yellow' | 'purple' | 'green' | 'indigo' | 'pink' | 'white' | 'custom' | 'primary';
+export type Colors =
+	'blue'
+	| 'gray'
+	| 'red'
+	| 'yellow'
+	| 'purple'
+	| 'green'
+	| 'indigo'
+	| 'pink'
+	| 'white'
+	| 'fuschia'
+	| 'custom'
+	| 'primary'
+	| 'violet'
+	| 'indigo'
+	| 'sky'
+	| 'cyan'
+	| 'teal'
+	| 'emerald'
+	| 'lime'
+	| 'amber'
+	| 'orange'
+	| 'stone'
+	| 'neutral'
+	| 'zinc'
+	| 'gray'
+	| 'slate';
 
+export type GradientColors =
+	| 'purpleToBlue'
+	| 'cyanToBlue'
+	| 'greenToBlue'
+	| 'purpleToPink'
+	| 'pinkToOrange'
+	| 'tealToLime'
+	| 'redToYellow'
+	| 'skytocyan'
+	| string;
 export interface DotType {
 	top?: boolean;
 	color?: string;

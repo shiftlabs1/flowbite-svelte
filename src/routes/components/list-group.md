@@ -55,7 +55,7 @@ Here’s an example of a list group that you can use right away.
   let simpleList = ["Profile", "Settings", "Messages", "Download"]
 </script>
 
-<Listgroup items={simpleList} let:item class="w-48">
+<Listgroup items={simpleList} let:item class="w-48" color="green">
   {item}
 </Listgroup>
 ```
@@ -79,7 +79,7 @@ If list is active and data items contain `href` field entries are presented as `
   ];
 </script>
 
-<Listgroup active items={links} let:item class="w-48">
+<Listgroup active items={links} let:item class="w-48" color="primary">
   {item.name}
 </Listgroup>
 ```

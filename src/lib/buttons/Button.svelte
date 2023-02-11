@@ -1,7 +1,7 @@
 <script lang="ts">
   import classNames from 'classnames';
   import { getContext } from 'svelte';
-  import type { ButtonType } from '../types';
+  import type { ButtonType, Colors, GradientColors } from '../types';
 
   const group = getContext('group');
 
@@ -13,49 +13,45 @@
   export let btnClass: string | undefined = undefined;
   export let type: ButtonType = 'button';
 
-  export let color:
-    | 'alternative'
-    | 'blue'
-    | 'cyan'
-    | 'dark'
-    | 'light'
-    | 'lime'
-    | 'green'
-    | 'pink'
-    | 'primary'
-    | 'red'
-    | 'teal'
-    | 'yellow'
-    | 'purple'
-    | 'purpleToBlue'
-    | 'cyanToBlue'
-    | 'greenToBlue'
-    | 'purpleToPink'
-    | 'pinkToOrange'
-    | 'tealToLime'
-    | 'redToYellow' = group ? (outline ? 'dark' : 'alternative') : 'blue';
+  export let color: Colors | 'alternative' | 'dark' | 'light' = group
+    ? outline
+      ? 'dark'
+      : 'alternative'
+    : 'blue';
 
+  export let gradientFrom: Colors = 'blue';
+  export let gradientTo: Colors | undefined = undefined;
   export let shadow: 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple' | null = null;
 
-  const colorClasses = {
-    blue: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',
-    dark: 'text-white bg-gray-800 hover:bg-gray-900 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700',
-    alternative:
-      'text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-blue-700 focus:text-blue-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700',
-    light:
-      'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700',
-    green:
-      'text-white bg-green-700 hover:bg-green-800 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800',
-    red: 'text-white bg-red-700 hover:bg-red-800 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900',
-    yellow: 'text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300 dark:focus:ring-yellow-900',
-    primary:
-      'text-white bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800',
-    purple:
-      'text-white bg-purple-700 hover:bg-purple-800 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'
+  const colorClasses = (color: Colors | string) => {
+    let classValue = '';
+    switch (color) {
+      case 'light':
+        classValue =
+          'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700';
+        break;
+      case 'dark':
+        classValue =
+          'text-white bg-gray-800 hover:bg-gray-900 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700';
+        break;
+      case 'alternative':
+        classValue =
+          'text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-blue-700 focus:text-blue-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700';
+        break;
+      default:
+        classValue = `text-white bg-${color}-700 hover:bg-${color}-800 focus:ring-${color}-300 dark:bg-${color}-600 dark:hover:bg-${color}-700 dark:focus:ring-${color}-900`;
+        break;
+    }
+    return classValue;
   };
 
-  const gradientClasses = {
-    blue: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-blue-300 dark:focus:ring-blue-800 ',
+  const gradientClasses = (gFrom: Colors, gTo: Colors | undefined) => {
+    if (!gTo) {
+      return `text-white bg-gradient-to-r from-${gFrom}-400 via-${gFrom}-500 to-${gFrom}-600 hover:bg-gradient-to-br focus:ring-${gFrom}-300 dark:focus:ring-${gFrom}-800`;
+    }
+    //greentoblue
+    return `text-white bg-gradient-to-br from-${gFrom}-400 to-${gTo}-600 hover:bg-gradient-to-bl focus:ring-${gFrom}-200 dark:focus:ring-${gFrom}-800'`;
+    /*   blue: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-blue-300 dark:focus:ring-blue-800 ',
     green:
       'text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-green-300 dark:focus:ring-green-800',
     cyan: 'text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-cyan-300 dark:focus:ring-cyan-800',
@@ -78,32 +74,33 @@
     tealToLime:
       'text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l focus:ring-lime-200 dark:focus:ring-teal-700',
     redToYellow:
-      'text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400'
+      'text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400' */
   };
 
-  const coloredShadowClasses = {
-    blue: 'shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80',
-    green: 'shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80',
-    cyan: 'shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80',
-    teal: 'shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 ',
-    lime: 'shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80',
-    red: 'shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 ',
-    pink: 'shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80',
-    purple: 'shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80'
+  const coloredShadowClasses = (color: Colors | string) => {
+    return `shadow-lg shadow-${color}-500/50 dark:shadow-lg dark:shadow-${color}-800/80`;
   };
 
-  const outlineClasses = {
-    blue: 'text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800',
-    light:
-      'text-gray-500 hover:text-gray-900 bg-white border border-gray-200 dark:border-gray-600 dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-400',
-    dark: 'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:bg-gray-900 focus:text-white focus:ring-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800',
-    green:
-      'text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800',
-    red: 'text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900',
-    yellow:
-      'text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900',
-    purple:
-      'text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-purple-300 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900'
+  const outlineClasses = (color: Colors | string) => {
+    let stringValue = '';
+    switch (color) {
+      case 'yellow':
+        stringValue =
+          'text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900';
+        break;
+      case 'light':
+        stringValue =
+          'text-gray-500 hover:text-gray-900 bg-white border border-gray-200 dark:border-gray-600 dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-400';
+        break;
+      case 'dark':
+        stringValue =
+          'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:bg-gray-900 focus:text-white focus:ring-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800';
+        break;
+      default:
+        stringValue = `text-${color}-700 hover:text-white border border-${color}-700 hover:bg-${color}-800 focus:ring-${color}-300 dark:border-${color}-500 dark:text-${color}-500 dark:hover:text-white dark:hover:bg-${color}-600 dark:focus:ring-${color}-800`;
+        break;
+    }
+    return stringValue;
   };
 
   const sizeClasses = {
@@ -136,7 +133,11 @@
         group && 'focus:z-10',
         group || 'focus:outline-none',
         outline && gradient ? 'p-0.5' : 'inline-flex items-center justify-center ' + sizeClasses[size],
-        gradient ? gradientClasses[color] : outline ? outlineClasses[color] : colorClasses[color],
+        gradient
+          ? gradientClasses(gradientFrom, gradientTo)
+          : outline
+          ? outlineClasses(color)
+          : colorClasses(color),
         color === 'alternative' &&
           (group
             ? 'dark:bg-gray-700 dark:text-white dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-600'
@@ -146,7 +147,7 @@
           (group ? 'dark:text-white dark:border-white' : 'dark:text-gray-400 dark:border-gray-700'),
         hasBorder() && group && 'border-l-0 first:border-l',
         rounded(false),
-        shadow && coloredShadowClasses[shadow],
+        shadow && coloredShadowClasses(shadow),
         $$props.disabled && 'cursor-not-allowed opacity-50',
         $$props.class
       );

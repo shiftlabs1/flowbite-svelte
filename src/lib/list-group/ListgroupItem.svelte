@@ -2,7 +2,9 @@
   import { getContext } from 'svelte';
   import classNames from 'classnames';
   import { createEventDispatcher } from 'svelte';
+  import type { Colors } from '$lib/types';
 
+  export let color: Colors = 'blue';
   export let active: boolean = getContext('active');
   export let current: boolean = false;
   export let disabled: boolean = false;
@@ -11,13 +13,12 @@
   let dispatch = createEventDispatcher();
 
   const states = {
-    current: 'text-white bg-blue-700 dark:text-white dark:bg-gray-800',
+    current: `text-white bg-${color}-700 dark:text-white dark:bg-gray-800`,
     normal: '',
     disabled: 'text-gray-900 bg-gray-100 dark:bg-gray-600 dark:text-gray-400'
   };
-  let focusClass =
-    'focus:z-40 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:focus:ring-gray-500 dark:focus:text-white';
-  let hoverClass = 'hover:bg-gray-100 hover:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white';
+  let focusClass = `focus:z-40 focus:outline-none focus:ring-2 focus:ring-${color}-700 focus:text-${color}-700 dark:focus:ring-gray-500 dark:focus:text-white`;
+  let hoverClass = `hover:bg-gray-100 hover:text-${color}-700 dark:hover:bg-gray-600 dark:hover:text-white`;
 
   let state: 'disabled' | 'current' | 'normal';
   $: state = disabled ? 'disabled' : current ? 'current' : 'normal';

@@ -53,7 +53,8 @@
     yellow: 'hover:bg-yellow-200',
     indigo: 'hover:bg-indigo-200',
     purple: 'hover:bg-purple-200',
-    pink: 'hover:bg-pink-200'
+    pink: 'hover:bg-pink-200',
+    primary: 'hover:bg-primary-200'
   };
 
   const baseClass = 'font-medium inline-flex items-center justify-center px-2.5 py-0.5';
@@ -98,7 +99,8 @@
     yellow: 'text-yellow-400 hover:text-yellow-900 dark:hover:!bg-yellow-800 dark:hover:text-yellow-300',
     indigo: 'text-indigo-400 hover:text-indigo-900 dark:hover:!bg-indigo-800 dark:hover:text-indigo-300',
     purple: 'text-purple-400 hover:text-purple-900 dark:hover:!bg-purple-800 dark:hover:text-purple-300',
-    pink: 'text-pink-400 hover:text-pink-900 dark:hover:!bg-pink-800 dark:hover:text-pink-300'
+    pink: 'text-pink-400 hover:text-pink-900 dark:hover:!bg-pink-800 dark:hover:text-pink-300',
+    primary: 'text-primary-400 hover:text-primary-900 dark:hover:!bg-primary-800 dark:hover:text-primary-300'
   };
 
   let closeBtnClass: string;

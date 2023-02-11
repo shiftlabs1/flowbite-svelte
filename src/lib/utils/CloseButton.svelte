@@ -1,36 +1,17 @@
 <script lang="ts">
   import { getContext } from 'svelte';
   import classNames from 'classnames';
+  import type { Colors } from '$lib/types';
 
   const background = getContext('background');
 
-  export let color:
-    | 'dark'
-    | 'gray'
-    | 'red'
-    | 'yellow'
-    | 'green'
-    | 'indigo'
-    | 'purple'
-    | 'pink'
-    | 'blue'
-    | 'primary'
-    | 'default'
-    | 'light' = 'default';
+  export let color: 'dark' | 'default' | 'light' | Colors = 'default';
   export let name = 'Close';
   export let size: 'xs' | 'sm' | 'md' = 'md';
 
   const colors = {
     dark: 'hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600',
-    gray: 'focus:ring-gray-400 hover:bg-gray-200 dark:hover:bg-gray-300',
-    red: 'focus:ring-red-400 hover:bg-red-200 dark:hover:bg-red-300',
-    yellow: 'focus:ring-yellow-400 hover:bg-yellow-200 dark:hover:bg-yellow-300',
-    green: 'focus:ring-green-400 hover:bg-green-200 dark:hover:bg-green-300',
-    indigo: 'focus:ring-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-300',
-    purple: 'focus:ring-purple-400 hover:bg-purple-200 dark:hover:bg-purple-300',
-    pink: 'focus:ring-pink-400 hover:bg-pink-200 dark:hover:bg-pink-300',
-    blue: 'focus:ring-blue-400 hover:bg-blue-200 dark:hover:bg-blue-300',
-    primary: 'focus:ring-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300',
+    other: `focus:ring-${color}-400 hover:bg-${color}-200 dark:hover:bg-${color}-300`,
     light: 'focus:bg-gray-50 hover:bg-gray-700 dark:hover:bg-gray-800',
     default: 'focus:ring-gray-300 '
   };
@@ -44,7 +25,7 @@
   $: buttonClass = classNames(
     'ml-auto focus:outline-none whitespace-normal',
     sizing[size],
-    colors[color],
+    colors[color !== 'light' && color !== 'dark' && color !== 'default' ? 'other' : color],
     color === 'default' &&
       (background ? 'hover:bg-gray-100 dark:hover:bg-gray-600' : 'hover:bg-gray-100 dark:hover:bg-gray-700'),
     $$props.class

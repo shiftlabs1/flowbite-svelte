@@ -11,12 +11,12 @@ import { get_current_component } from 'svelte/internal';
 
 export default function createEventDispatcher() {
 	const component = get_current_component();
-	return (type, target, detail) => {
+	return (/** @type {string} */ type, /** @type {{ dispatchEvent: (arg0: CustomEvent<any>) => void; }} */ target, /** @type {any} */ detail) => {
 		const callbacks = component.$$.callbacks[type];
 		if (callbacks) {
 			const event = new CustomEvent(type, { detail });
 			target.dispatchEvent(event);
-			callbacks.slice().forEach((fn) => {
+			callbacks.slice().forEach((/** @type {{ call: (arg0: any, arg1: CustomEvent<any>) => void; }} */ fn) => {
 				fn.call(component, event);
 			});
 		}
