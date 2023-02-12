@@ -72,11 +72,11 @@ Use this example of a navigation bar built with the utility classes from Tailwin
   </NavBrand>
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
-    <NavLi href="/" active={true}>Home</NavLi>
-    <NavLi href="/about">About</NavLi>
-    <NavLi href="/services">Services</NavLi>
-    <NavLi href="/pricing">Pricing</NavLi>
-    <NavLi href="/contact">Contact</NavLi>
+    <NavLi href="/" color="primary" active={true} >Home</NavLi>
+    <NavLi href="/about" color="pink">About</NavLi>
+    <NavLi href="/services" color="indigo">Services</NavLi>
+    <NavLi href="/pricing" color="purple">Pricing</NavLi>
+    <NavLi href="/contact" color="orange">Contact</NavLi>
   </NavUl>
 </Navbar>
 ```
