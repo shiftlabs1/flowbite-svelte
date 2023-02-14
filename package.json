@@ -1,10 +1,12 @@
 {
 	"name": "flowbite-kit",
-	"version": "0.30.18",
+	"version": "0.30.16",
 	"description": "Flowbite components for Svelte",
-	"main": "package/index.js",
+	"main": "index.js",
 	"author": {
-		"name": "Joshua O"
+		"name": "Shinichi Okada",
+		"email": "connect@codewithshin.com",
+		"url": "https://blog.codewithshin.com"
 	},
 	"bugs": "https://github.com/themesberg/flowbite-svelte/issues",
 	"homepage": "https://flowbite-svelte.com/",
@@ -21,7 +23,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"gen:props": "node ./node_modules/createprops/createprops.js",
-		"pub": "standard-version && git push --follow-tags origin main && npm run build:package && npm publish ./package"
+		"pub": "standard-version && git push --follow-tags origin custom",
+		"package:publish": "standard-version && git push --follow-tags origin main && npm run build:package && npm publish ./package"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.30.0",
