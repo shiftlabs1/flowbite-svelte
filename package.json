@@ -2,9 +2,9 @@
 	"name": "flowbite-kit",
 	"version": "0.30.28",
 	"description": "Flowbite components for Svelte",
-	"main": "./src/lib/index.ts",
-	"module": "./src/lib/index.ts",
-	"svelte": "./src/lib/index.ts",
+	"main": "index.js",
+	"module": "index.js",
+	"svelte": "index.js",
 	"author": {
 		"name": "Shinichi Okada",
 		"email": "connect@codewithshin.com",
