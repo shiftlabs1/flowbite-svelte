@@ -1,6 +1,6 @@
 {
 	"name": "flowbite-kit",
-	"version": "0.30.22",
+	"version": "0.30.23",
 	"description": "Flowbite components for Svelte",
 	"main": "index.js",
 	"author": {
@@ -24,7 +24,7 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"gen:props": "node ./node_modules/createprops/createprops.js",
 		"pub": "standard-version && git push --follow-tags origin custom",
-		"package:publish": "standard-version && git push --follow-tags origin main && npm run build:package && npm publish ./package"
+		"pubmain": "standard-version && git push --follow-tags origin custom && npm run build:package && npm publish ./package"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.30.0",
