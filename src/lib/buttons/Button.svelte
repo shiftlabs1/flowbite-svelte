@@ -5,9 +5,9 @@
 
   const group = getContext('group');
 
-  export let pill: boolean = false;
-  export let outline: boolean = false;
-  export let gradient: boolean = false;
+  export let pill = false;
+  export let outline = false;
+  export let gradient = false;
   export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = group ? 'sm' : 'md';
   export let href: string | undefined = undefined;
   export let btnClass: string | undefined = undefined;
@@ -33,7 +33,7 @@
     | 'purpleToPink'
     | 'pinkToOrange'
     | 'tealToLime'
-    | 'redToYellow' = group ? (outline ? 'dark' : 'alternative') : 'blue';
+    | 'redToYellow' = group ? (outline ? 'dark' : 'alternative') : 'primary';
 
   export let shadow: 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple' | null = null;
 
@@ -41,7 +41,7 @@
     blue: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',
     dark: 'text-white bg-gray-800 hover:bg-gray-900 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700',
     alternative:
-      'text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-blue-700 focus:text-blue-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700',
+      'text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-primary-700 focus:text-primary-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700',
     light:
       'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700',
     green:
@@ -63,10 +63,16 @@
     lime: 'text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-lime-300 dark:focus:ring-lime-800',
     red: 'text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-red-300 dark:focus:ring-red-800',
     pink: 'text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-pink-300 dark:focus:ring-pink-800',
+    primary:
+      'text-white bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 hover:bg-gradient-to-br focus:ring-primary-300 dark:focus:ring-primary-800',
     purple:
       'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300 dark:focus:ring-purple-800',
     purpleToBlue:
       'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800',
+    primaryToCyan:
+      'text-white bg-gradient-to-r from-primary-500 to-cyan-500 hover:bg-gradient-to-bl focus:ring-primary-300 dark:focus:ring-primary-800',
+    primaryToBlue:
+      'text-white bg-gradient-to-r from-primary-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-primary-300 dark:focus:ring-primary-800',
     cyanToBlue:
       'text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-cyan-300 dark:focus:ring-cyan-800',
     greenToBlue:
@@ -89,7 +95,8 @@
     lime: 'shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80',
     red: 'shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 ',
     pink: 'shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80',
-    purple: 'shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80'
+    purple: 'shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80',
+    primary: 'shadow-lg shadow-primary-500/50 dark:shadow-lg dark:shadow-primary-800/80'
   };
 
   const outlineClasses = {
@@ -103,7 +110,9 @@
     yellow:
       'text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900',
     purple:
-      'text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-purple-300 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900'
+      'text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-purple-300 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900',
+    primary:
+      'text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-600 dark:focus:ring-primary-800'
   };
 
   const sizeClasses = {
@@ -114,7 +123,7 @@
     xl: 'px-6 py-3.5 text-base'
   };
 
-  function rounded(gradientOutline: boolean = false) {
+  function rounded(gradientOutline = false) {
     if (group) {
       return pill
         ? 'first:rounded-l-full last:rounded-r-full'

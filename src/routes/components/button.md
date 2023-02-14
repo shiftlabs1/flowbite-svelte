@@ -66,7 +66,7 @@ Use these default button styles with multiple colors to indicate an action or li
 <Button color="light">Light</Button>
 <Button color="green">Green</Button>
 <Button color="red">Red</Button>
-<Button color="yellow">Yellow</Button>
+<Button color="primary">Primary</Button>
 <Button color="purple">Purple</Button>
 ```
 
