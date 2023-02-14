@@ -5,9 +5,10 @@ node_modules
 .env
 .env.*
 !.env.example
-
+/package
 .vercel
 .vscode/
 
 /src/routes/compotests
 /src/routes/typechecktests
+

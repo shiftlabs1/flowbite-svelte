@@ -2,7 +2,7 @@
 	"name": "flowbite-kit",
 	"version": "0.30.21",
 	"description": "Flowbite components for Svelte",
-	"main": "package/index.js",
+	"main": "index.js",
 	"author": {
 		"name": "Shinichi Okada",
 		"email": "connect@codewithshin.com",
