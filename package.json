@@ -1,12 +1,10 @@
 {
 	"name": "flowbite-kit",
-	"version": "0.30.17",
+	"version": "0.30.18",
 	"description": "Flowbite components for Svelte",
 	"main": "package/index.js",
 	"author": {
-		"name": "Shinichi Okada",
-		"email": "connect@codewithshin.com",
-		"url": "https://blog.codewithshin.com"
+		"name": "Joshua O"
 	},
 	"bugs": "https://github.com/themesberg/flowbite-svelte/issues",
 	"homepage": "https://flowbite-svelte.com/",
@@ -107,12 +105,5 @@
 	"engines": {
 		"npm": ">=7.0.0",
 		"node": ">=16.0.0"
-	},
-	"contributors": [
-		"Zoltán Szőgyényi <zoltan@themesberg.com>",
-		"Robert Tanislav <robert@themesberg.com>",
-		"Victor Cordos <victor@themesberg.com>",
-		"Shinichi Okada <okada.shin@gmail.com>",
-		"Jakub Jagielka <jjagielka@gmail.com>"
-	]
+	}
 }
