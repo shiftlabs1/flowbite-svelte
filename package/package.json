@@ -1,8 +1,10 @@
 {
-  "name": "flowbite-kit",
-  "version": "0.30.23",
+  "name": "flowbite-svelte",
+  "version": "0.30.32",
   "description": "Flowbite components for Svelte",
   "main": "index.js",
+  "module": "index.js",
+  "svelte": "index.js",
   "author": {
     "name": "Shinichi Okada",
     "email": "connect@codewithshin.com",
@@ -250,6 +252,5 @@
     "./utils/focusTrap": "./utils/focusTrap.js",
     "./utils/generateId": "./utils/generateId.js",
     "./video/Video.svelte": "./video/Video.svelte"
-  },
-  "svelte": "./index.js"
+  }
 }
