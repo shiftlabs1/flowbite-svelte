@@ -35,7 +35,17 @@
     | 'tealToLime'
     | 'redToYellow' = group ? (outline ? 'dark' : 'alternative') : 'primary';
 
-  export let shadow: 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple' | null = null;
+  export let shadow:
+    | 'blue'
+    | 'green'
+    | 'cyan'
+    | 'teal'
+    | 'lime'
+    | 'red'
+    | 'pink'
+    | 'purple'
+    | 'primary'
+    | null = null;
 
   const colorClasses = {
     blue: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800',

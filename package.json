@@ -6,11 +6,8 @@
 	"module": "./package/index.js",
 	"svelte": "./package/index.js",
 	"author": {
-		"name": "Shinichi Okada",
-		"email": "connect@codewithshin.com",
-		"url": "https://blog.codewithshin.com"
+		"name": "Josh"
 	},
-	"bugs": "https://github.com/themesberg/flowbite-svelte/issues",
 	"homepage": "https://flowbite-svelte.com/",
 	"license": "MIT",
 	"scripts": {
