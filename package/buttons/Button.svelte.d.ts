@@ -11,7 +11,7 @@ declare const __propDef: {
         btnClass?: string | undefined;
         type?: ButtonType | undefined;
         color?: "red" | "yellow" | "green" | "purple" | "pink" | "blue" | "light" | "dark" | "cyan" | "teal" | "lime" | "alternative" | "primary" | "purpleToBlue" | "cyanToBlue" | "greenToBlue" | "purpleToPink" | "pinkToOrange" | "tealToLime" | "redToYellow" | undefined;
-        shadow?: "red" | "green" | "purple" | "pink" | "blue" | "cyan" | "teal" | "lime" | null | undefined;
+        shadow?: "red" | "green" | "purple" | "pink" | "blue" | "cyan" | "teal" | "lime" | "primary" | null | undefined;
     };
     events: {
         click: MouseEvent;

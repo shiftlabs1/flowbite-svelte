@@ -9,7 +9,7 @@ declare const __propDef: {
         value?: string | number | undefined;
         size?: FormSizeType | undefined;
         defaultClass?: string | undefined;
-        color?: "red" | "green" | "base" | undefined;
+        color?: "red" | "green" | "primary" | "base" | undefined;
     };
     events: {
         blur: FocusEvent;

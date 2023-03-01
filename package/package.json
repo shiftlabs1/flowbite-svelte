@@ -1,16 +1,13 @@
 {
   "name": "flowbite-svelte",
-  "version": "0.30.36",
+  "version": "0.30.40",
   "description": "Flowbite components for Svelte",
   "main": "./package/index.js",
   "module": "./package/index.js",
   "svelte": "./package/index.js",
   "author": {
-    "name": "Shinichi Okada",
-    "email": "connect@codewithshin.com",
-    "url": "https://blog.codewithshin.com"
+    "name": "Josh"
   },
-  "bugs": "https://github.com/themesberg/flowbite-svelte/issues",
   "homepage": "https://flowbite-svelte.com/",
   "license": "MIT",
   "devDependencies": {
