@@ -4,15 +4,15 @@
   import classNames from 'classnames';
   import { getContext, onMount } from 'svelte';
   import { writable } from 'svelte/store';
-  import { fade, blur, fly, slide } from 'svelte/transition';
-  import type { TransitionTypes, TransitionParamTypes } from '../types';
+  import { blur, fade, fly, slide } from 'svelte/transition';
+  import type { TransitionParamTypes, TransitionTypes } from '../types';
   import type { AccordionCtxType } from './Accordion.svelte';
 
-  export let open: boolean = false;
+  export let open = false;
   export let activeClasses: string | undefined = undefined;
   export let inactiveClasses: string | undefined = undefined;
 
-  export let defaultClass: string =
+  export let defaultClass =
     'flex items-center justify-between w-full font-medium text-left group-first:rounded-t-xl';
 
   export let transitionType: TransitionTypes = 'slide';
