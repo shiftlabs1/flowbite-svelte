@@ -1,4 +1,4 @@
-# FLOWBITE-SVELTE
+# FLOWBITE-SVELTE 
 
 [![npm version](https://badgen.net/npm/v/flowbite-svelte)](https://www.npmjs.com/package/flowbite-svelte)
 [![npm downloads](https://badgen.net/npm/dw/flowbite-svelte)](https://www.npmjs.com/package/flowbite-svelte)
@@ -19,9 +19,21 @@
 
 [Visualize this repo's codebase](https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=themesberg%2Fflowbite-svelte)
 
-## Flowbite-Svelte-Starter
+## Flowbite Svelte Starters
 
-You can use [Flowbite-Svelte Starter](https://github.com/shinokada/flowbite-svelte-starter) for a quick start.
+You can find all the starters in the Starters directory.
+
+- [Flowbite SvelteKit starter](https://github.com/shinokada/flowbite-svelte-starter)
+- [Svelte starter](https://github.com/shinokada/svelte-starter)
+- [Svelte TS starter](https://github.com/shinokada/svelte-ts-starter)
+
+## Flowbite Svelte Examples
+
+You can find all the examples in the Examples directory.
+
+- [Flowbite SvelteKit responsive sidebar layout](https://github.com/themesberg/flowbite-svelte/tree/main/examples/flowbite-sveltekit-responsive-sidebar-layout)
+
+
 
 ## Installation
 
@@ -424,13 +436,35 @@ For full documentation, visit [flowbite-svelte.com](https://flowbite-svelte.com/
         </a>
     </td>
     <td width="33.3333%">
-        <a href="#">
+        <a href="https://flowbite-svelte.com/">
             <img alt="Tailwind CSS Stepper" src="https://flowbite.s3.amazonaws.com/github/stepper.jpg">
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite.com/components/indicators/">
+        <a href="https://flowbite-svelte.com/components/indicators/">
             <img alt="Tailwind CSS Indicators" src="https://flowbite.s3.amazonaws.com/github/indicators.jpg">
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33.3333%">Bottom Navigation</td>
+    <td width="33.3333%">Sticky Banner</td>
+    <td width="33.3333%">Gallery (Masonry)</td>
+  </tr>
+  <tr>
+    <td width="33.3333%">
+        <a href="https://flowbite-svelte.com/components/bottom-navigation/">
+            <img alt="Tailwind CSS Bottom Navigation Bar" src="https://flowbite.s3.amazonaws.com/github/bottom-bar.jpg">
+        </a>
+    </td>
+    <td width="33.3333%">
+        <a href="https://flowbite-svelte.com/components/banner/">
+            <img alt="Tailwind CSS Bottom Sticky Banner" src="https://flowbite.s3.amazonaws.com/github/banner.jpg">
+        </a>
+    </td>
+    <td width="33.3333%">
+        <a href="https://flowbite-svelte.com/components/gallery/">
+            <img alt="Tailwind CSS Image Gallery (Masonry)" src="https://flowbite.s3.amazonaws.com/github/gallery.jpg">
         </a>
     </td>
   </tr>

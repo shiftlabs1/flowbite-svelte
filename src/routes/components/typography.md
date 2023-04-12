@@ -1,34 +1,25 @@
 ---
-layout: typographyLayout
+layout: componentLayout
 title: Svelte Typography - Flowbite
 breadcrumb_title: Typography
 dir: Components
 description: Use the typography and the utility classes from Tailwind CSS to style text with FlowBite
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Heading, A } from '$lib';
+  import { GitHubSourceList, TableProp, TableDefaultRow, } from '../utils'
+  import { A } from '$lib';
+  // lib files
+  const libFiles = import.meta.glob('../../lib/typography/*.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
-
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
+<GitHubSourceList {libFiles} />
 
 The typography for FlowBite is completely based on the utility classes from Tailwind CSS.
 
 We have listed some of the commonly used typography classes that we use throughout the FlowBite UI, however, you can also check out all of the utility classes on the <a class="link" href="https://tailwindcss.com/docs/font-family">Tailwind CSS documentation</a> directly.
 
-<Htwo label="Font Size" />
+## Font Size
 
 Use the following text-size utility classes from Tailwind to set the font size for any text element.
 
@@ -48,7 +39,7 @@ Use the following text-size utility classes from Tailwind to set the font size f
 <p class="text-9xl dark:text-white">FlowBite</p>
 ```
 
-<Htwo label="Font Weight " />
+## Font Weight 
 
 Use the following font-weight utility classes to set the font weight for any text element.
 
@@ -64,7 +55,7 @@ Use the following font-weight utility classes to set the font weight for any tex
 <p class="font-black dark:text-white">FlowBite</p>
 ```
 
-<Htwo label="Line Height" />
+## Line Height
 
 Use the following leading-type utility classes to set the line height for any text element.
 
@@ -77,7 +68,7 @@ Use the following leading-type utility classes to set the line height for any te
 <p class="leading-loose dark:text-gray-400">Themesberg was created to bring quality ...</p>
 ```
 
-<Htwo label="Lists" />
+## Lists
 
 Use the following code to create list items with ordered and unordered lists.
 
@@ -102,7 +93,7 @@ Use the following code to create list items with ordered and unordered lists.
   </ul>
 ```
 
-<Htwo label="List position" />
+## List position
 
 Use the list-inside and list-outside classes to set the list item position inside a list component.
 
@@ -121,7 +112,7 @@ Use the list-inside and list-outside classes to set the list item position insid
   </ul>
 ```
 
-<Htwo label="Text Decoration" />
+## Text Decoration
 
 You can use the following classes to set the text decoration for any inline text element.
 

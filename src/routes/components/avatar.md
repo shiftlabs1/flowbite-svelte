@@ -6,51 +6,36 @@ dir: Components
 description: Use the avatar component to show a visual representation of a user profile using an image element or SVG object based on multiple styles and sizes
 ---
 
-
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Heading, P, A } from '$lib'
-  // Props table
-  import { props as avatarProps } from '../props/Avatar.json'
-	let propHeader = ['Name', 'Type', 'Default']
-	let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+  import { GitHubSourceList, TableProp, TableDefaultRow, } from '../utils'
 
+  import { P, A } from '$lib'
+
+  import { props as avatarProps } from '../props/Avatar.json'
+  import { props as placehoderProps } from '../props/Placeholder.json'
+
+  // lib files
+  const libFiles = import.meta.glob('../../lib/avatar/*.svelte')
   let name;
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
-
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-<GitHubSource href="avatar/Avatar.svelte">Avatar</GitHubSource>
-</ExampleDiv>
+<GitHubSourceList {libFiles} />
 
 The avatar component can be used as a visual identifier for a user profile on your website and you can use the examples from Flowbite to modify the styles and sizes of these components using the utility classes from Tailwind CSS.
 
-<Htwo label="Setup" />
+## Setup
 
 Import `Avatar`.
 If you are using the user dropdown, import `Dropdown`, `DropdownHeader`, `DropdownItem`, `DropdownDivider`.
 If you are using tooltip for avatar import `Tooltip`.
 
-```svelte
+```svelte example hideOutput
 <script>
   import { Avatar, Dropdown, DropdownHeader, DropdownItem, DropdownDivider, Tooltip } from "flowbite-svelte"
 </script>
 ```
 
-<Htwo label="Default avatar" />
+## Default avatar
 
 Use this example to create a circle and rounded avatar on an image element.
 
@@ -64,7 +49,7 @@ Use this example to create a circle and rounded avatar on an image element.
 </div>
 ```
 
-<Htwo label="Bordered" />
+## Bordered
 
 You can apply a border around the avatar component.
 
@@ -78,9 +63,9 @@ If you can use the `ring-&#123;color&#125;` class from Tailwind CSS to modify ri
 <Avatar src="/images/profile-picture-2.webp" border class="ring-red-400 dark:ring-red-300"/>
 ```
 
-<Htwo label="Placeholder" />
+## Placeholder
 
-When there is no custom image available a placehoder is displayed.
+When there is no custom image available a placeholder is displayed.
 
 ```svelte example class="flex gap-4" hideScript
 <script>
@@ -92,7 +77,7 @@ When there is no custom image available a placehoder is displayed.
 <Avatar rounded border />
 ```
 
-<Htwo label="Placeholder initials" />
+## Placeholder initials
 
 This example can be used to show the initials of the user’s first and last name as a placeholder when no profile picture is available.
 
@@ -103,7 +88,7 @@ This example can be used to show the initials of the user’s first and last nam
   <Avatar>JL</Avatar>
 ```
 
-<Htwo label="Avatar tooltip" />
+## Avatar tooltip
 
 Use this example to show a tooltip when hovering over the avatar.
 
@@ -117,7 +102,7 @@ Use this example to show a tooltip when hovering over the avatar.
   <Tooltip triggeredBy="[data-name]" on:show={e => name = e.target.dataset.name}>{name}</Tooltip>
 ```
 
-<Htwo label="Dot indicator" />
+## Dot indicator
 
 Use a dot element relative to the avatar component as an indicator for the user (eg. online or offline status).
 
@@ -130,12 +115,11 @@ Use a dot element relative to the avatar component as an indicator for the user 
 <Avatar src="/images/profile-picture-5.webp" dot={{placement: "bottom-right", color:"green"}} />
 <Avatar src="/images/profile-picture-5.webp" dot={{placement: "bottom-right"}} rounded />
 
-
 <Avatar dot={{}}/>
 
 ```
 
-<Htwo label="Stacked" />
+## Stacked
 
 Use this example if you want to stack a group of users by overlapping the avatar components.
 
@@ -157,7 +141,7 @@ Use this example if you want to stack a group of users by overlapping the avatar
 </div>
 ```
 
-<Htwo label="Avatar text" />
+## Avatar text
 
 This example can be used if you want to show additional information in the form of text elements such as the user’s name and join date.
 
@@ -174,7 +158,7 @@ This example can be used if you want to show additional information in the form 
 </div>
 ```
 
-<Htwo label="User dropdown" />
+## User dropdown
 
 Use this example if you want to show a dropdown menu when clicking on the avatar component.
 
@@ -197,7 +181,7 @@ Use this example if you want to show a dropdown menu when clicking on the avatar
   </Dropdown>
 ```
 
-<Htwo label="Sizes" />
+## Sizes
 
 Select size from  xs | sm | md | lg | xl.
 
@@ -214,16 +198,24 @@ Select size from  xs | sm | md | lg | xl.
 </div>
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. See <A href="/pages/types">types 
  page</A> for type information.
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+### Avatar
+
+<TableProp>
 <TableDefaultRow items={avatarProps} rowState='hover' />
 </TableProp>
 
-<Htwo label="References" />
+### Placehoder
+
+<TableProp>
+  <TableDefaultRow items={placehoderProps} rowState='hover' />
+</TableProp>
+
+## References
 
 <P>
   <A href="https://flowbite.com/docs/components/avatar/" target="_blank" rel="noreferrer" class="link">

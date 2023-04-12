@@ -1,10 +1,10 @@
 <script>
   import Htwo from '../../utils/Htwo.svelte';
-  import 'prism-themes/themes/prism-holi-theme.css';
+  // import 'prism-themes/themes/prism-holi-theme.css';
 </script>
 
 <div class="max-w-3xl 2xl:max-w-4xl mx-auto mt-8">
-  <div class="container flex flex-wrap mx-auto">
+  <div class="container mx-auto" id="mainContent">
     <slot />
 
     <Htwo label="Related topics" />
@@ -45,6 +45,9 @@
     </div>
   </div>
 </div>
+<aside class="fixed z-50 hidden right-5 bottom-5 sm:block">
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEAIC53I&placement=flowbite-sveltecom" id="_carbonads_js"></script>
+</aside>
 
 <style>
   .link {

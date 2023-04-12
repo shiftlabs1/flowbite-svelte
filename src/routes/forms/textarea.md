@@ -1,48 +1,33 @@
 ---
-layout: formLayout
+layout: componentLayout
 title: Svelte Textarea - Flowbite
 breadcrumb_title: Textarea
 dir: Forms
 description: Use the textarea component as a multi-line text field input and use it inside form elements available in multiple sizes, styles, and variants
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-
-  import { Heading, Breadcrumb, BreadcrumbItem, Badge, A } from '$lib'
+  import { GitHubSourceList, TableProp, TableDefaultRow } from '../utils'
+  import { Badge, A } from '$lib'
   import { props as items } from '../props/Textarea.json'
-  let propHeader = ['Name', 'Type', 'Default']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+
+  // lib files
+  const libFiles = import.meta.glob('../../lib/forms/Textarea.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
+<GitHubSourceList {libFiles} />
 
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
+The textarea component is a multi-line text field input that can be used to receive longer chunks of text from the user in the form of a comment box, description field, and more.
 
-<CompoDescription>{description}</CompoDescription>
+## Setup
 
-<ExampleDiv>
-<GitHubSource href="forms/Textarea.svelte">Textarea</GitHubSource>
-</ExampleDiv>
-
-The textarea component is a multi-line text field input that can be used to receive longer chuncks of text from the user in the form of a comment box, description field, and more.
-
-<Htwo label="Setup" />
-
-```html
+```svelte example hideOutput
 <script>
   import { Textarea } from 'flowbite-svelte';
 </script>
 ```
 
-<Htwo label="Textarea example" />
+## Textarea example
 
 Get started with the default example of a textarea component below.
 
@@ -55,7 +40,7 @@ Get started with the default example of a textarea component below.
 <Textarea id="textarea-id" placeholder="Your message" rows="4" name="message"/>
 ```
 
-<Htwo label="WYSIWYG Editor" />
+## WYSIWYG Editor
 
 If you want to add other actions as buttons alongside your textarea component, such as with a WYSIWYG editor, then you can use the example below.
 
@@ -84,7 +69,7 @@ If you want to add other actions as buttons alongside your textarea component, s
 </form>
 ```
 
-<Htwo label="Comment box" />
+## Comment box
 
 Most often the textarea component is used as the main text field input element in comment sections. Use this example to also apply a helper text and buttons below the textarea itself.
 
@@ -108,44 +93,46 @@ Most often the textarea component is used as the main text field input element i
 <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our <a href="/" class="text-blue-600 dark:text-blue-500 hover:underline">Community Guidelines</a>.</p>
 ```
 
-<Htwo label="Chatroom input" />
+## Chatroom input
 
 If you want to build a chatroom component you will usually want to use a textarea element to allow users to write multi-line chunks of text.
 
 ```svelte example class="space-y-4"
 <script>
-  import { Textarea, Alert, CloseButton } from 'flowbite-svelte'
+  import { Textarea, Alert, ToolbarButton } from 'flowbite-svelte'
 </script>
 
 <form>
   <label for="chat" class="sr-only">Your message</label>
   <Alert color="dark" class="px-3 py-2">
-    <CloseButton color="dark" class="text-gray-500 dark:text-gray-400">
+    <svelte:fragment slot="icon">
+    <ToolbarButton color="dark" class="text-gray-500 dark:text-gray-400">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
         <span class="sr-only">Upload image</span>
-    </CloseButton>
-    <CloseButton color="dark" class="text-gray-500 dark:text-gray-400">
+    </ToolbarButton>
+    <ToolbarButton color="dark" class="text-gray-500 dark:text-gray-400">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>
         <span class="sr-only">Add emoji</span>
-    </CloseButton>
+    </ToolbarButton>
     <Textarea id="chat" class="mx-4" rows="1" placeholder="Your message..."/>
-    <CloseButton type="submit" color="blue" class="rounded-full text-blue-600 dark:text-blue-500">
+    <ToolbarButton type="submit" color="blue" class="rounded-full text-blue-600 dark:text-blue-500">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
         <span class="sr-only">Send message</span>
-    </CloseButton>
+    </ToolbarButton>
+    </svelte:fragment>
   </Alert>
 </form>
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. See <A href="/pages/types">types page</A> for type information.
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
 <TableDefaultRow {items} rowState='hover' />
 </TableProp>
 
-<Htwo label="Forwarded Events" />
+## Forwarded Events
 
 <div class="flex flex-wrap gap-2">
 <Badge large={true}>on:blur</Badge>

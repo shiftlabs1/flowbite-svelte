@@ -1,76 +1,35 @@
 ---
-layout: pageLayout
-breadcrumb_title: Flowbite-Svelte Starter
-title: Flowbite-Svelte Starter
+layout: componentLayout
+breadcrumb_title: Flowbite Svelte Starters
+title: Flowbite Svelte Starters
 dir: Extend
-description: Flowbite-Svete-Starter provides all necessary components to get started quickly 
+description: Flowbite Svete Starters provide all necessary components to get started quickly
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { CompoDescription, Htwo, MetaTag } from '../utils'
-  import { Breadcrumb, BreadcrumbItem, Heading, A } from '$lib'
+  import { A, List, Li } from '$lib'
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
+## Flowbite Svelte starter
 
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
+<List tag="ul" class="space-y-1 my-4">
+  <Li><A href="https://github.com/themesberg/flowbite-svelte/tree/main/starters/flowbite-svelte-starter/">GitHub Repo</A></Li>
+  <Li><A href="https://flowbite-svelte-starter.vercel.app/">Demo</A></Li>
+</List>
 
-<CompoDescription>{description}</CompoDescription>
+## Svelte starter
 
-<Htwo label="Demo" />
+<List tag="ul" class="space-y-1 my-4">
+  <Li><A href="https://github.com/themesberg/flowbite-svelte/tree/main/starters/svelte-starter">GitHub Repo</A></Li>
+  <Li><A href="https://shinokada.github.io/svelte-starter/">Demo</A></Li>
+</List>
 
-<p class="dark:text-white" ><a class="text-blue-700" href="https://flowbite-svelte-starter.vercel.app/">Flowbite-Svelte-Starter Demo</a></p>
+## Svelte TS starter
 
-<Htwo label="Features" />
+<p class="dark:text-white hover:text-blue-900 dark:hover:text-blue-500 w-full"><a href="https://github.com/themesberg/flowbite-svelte/tree/main/starters/svelte-ts-starter/">Repo</a></p>
+<p class="dark:text-white hover:text-blue-900 dark:hover:text-blue-500 w-full"><a href="https://shinokada.github.io/svelte-ts-starter/">Demo</a></p>
 
-<ul class="dark:text-white">
-<li>Svelte</li>
-<li>SvelteKit</li>
-<li>Tailwind CSS</li>
-<li>Flowbite</li>
-<li>Flowbite-Svelte</li>
-<li>Flowbite-Svelte-Blocks</li>
-<li>ESlint</li>
-<li>Typescript</li>
-<li>Playwright</li>
-<li>Prettier</li>
-<li>Svelte-heros(Heroicons)</li>
-<li>Darkmode activated</li>
-</ul>
-
-<Htwo label="Installation" />
-
-```sh
-npx degit shinokada/flowbite-svelte-starter my-demo
-cd my-demo
-pnpm i // or npm i
-pnpm run dev // or npm run dev
-```
-
-<Htwo label="Other examples/themes" />
-
-<Htwo label="Svelte-Sidebar-Example" />
-
-If you want to see [a svelte-sidebar demo](https://flowbite-svelte-starter.vercel.app/):
-
-```sh
-git checkout svelte-sidebar-example
-```
-
-<Htwo label="Jaco example" />
-
-```sh
-git checkout jaco
-```
-
-<Htwo label="Plain" />
-
-```sh
-git checkout plain
-```
+<List tag="ul" class="space-y-1 my-4">
+  <Li><A href="https://github.com/themesberg/flowbite-svelte/tree/main/starters/svelte-ts-starter/">GitHub Repo</A></Li>
+  <Li><A href="https://shinokada.github.io/svelte-ts-starter/">Demo</A></Li>
+</List>

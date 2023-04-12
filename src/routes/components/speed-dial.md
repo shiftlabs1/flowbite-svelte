@@ -6,51 +6,34 @@ dir: Components
 description: The speed dial component can be used as a quick way to show a list of action buttons to a user when hovering or clicking on the main trigger element.
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Heading, P, A } from '$lib'  
+  import { GitHubSourceList, TableProp, TableDefaultRow, } from '../utils'
+  import { P, A, Alert } from '$lib'  
   import { props as items1 } from '../props/SpeedDial.json'
+  import { props as items2 } from '../props/SpeedDialButton.json'
 
-  let propHeader = ['Name', 'Type', 'Default']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+  // lib files
+  const libFiles = import.meta.glob('../../lib/speed-dial/*.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
-
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-<GitHubSource href="speed-dial/SpeedDial.svelte">Modal</GitHubSource>
-</ExampleDiv>
+<GitHubSourceList {libFiles} />
 
 Get started with the speed dial component to show a list of buttons or menu items positioned relative to the body in either corner as a quick way to allow certains actions to be made by your users.
 
-<Htwo label="Default speed dial" />
+## Default speed dial
 
 To initialize a speed dial component you need to wrap the trigger element and the list of items inside an element and use the data-dial-init data attribute on it.
 
-<div class="border border-gray-200 dark:border-gray-700 my-2 p-4 w-full" >
+<Alert>
 
-**Note!** Default class for speed dial is `fixed right-6 bottom-6`. However for the sake of the examples below `fixed` must be changed to `absolute`, therefore you can
-notice `defaultClass="absolute right-6 left-6` at every example.
-</div>
+**Note!** Default class for speed dial is `fixed right-6 bottom-6`. However for the sake of the examples below `fixed` must be changed to `absolute`, therefore you can notice `defaultClass="absolute right-6 left-6"` at every example.
 
+</Alert>
 
 ```svelte example class="relative h-96"
 <script>
   import { SpeedDial, SpeedDialButton } from 'flowbite-svelte'
 </script>
-
 
 <SpeedDial defaultClass="absolute right-6 bottom-6">
     <SpeedDialButton name="Share">
@@ -68,7 +51,143 @@ notice `defaultClass="absolute right-6 left-6` at every example.
 </SpeedDial>
 ```
 
-<Htwo label="Square speed dial" />
+## Colors
+
+The Speed Dial components accommodate a variety of Button component properties, including color options (blue, dark, alternative, light, green, red, yellow, primary, and purple), gradient, shadow, and outline styles. For further information, please refer to **[the Button component](https://flowbite-svelte.com/components/button)** documentation.
+
+```svelte example class="relative h-96"
+<script>
+  import { SpeedDial, SpeedDialButton } from 'flowbite-svelte'
+</script>
+
+<SpeedDial color='primary' defaultClass="absolute left-6 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='purple' defaultClass="absolute left-24 bottom-6" >
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='light' defaultClass="absolute left-44 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='dark' defaultClass="absolute left-64 bottom-6" >
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+
+<SpeedDial color='red' defaultClass="absolute right-6 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='green' defaultClass="absolute right-24 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='yellow' defaultClass="absolute right-44 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='blue' defaultClass="absolute right-64 bottom-6">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+
+<SpeedDial color='purpleToBlue' gradient defaultClass="absolute left-6 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='cyanToBlue' gradient defaultClass="absolute left-24 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='greenToBlue' gradient defaultClass="absolute left-44 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='purpleToPink' gradient defaultClass="absolute left-64 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+
+<SpeedDial color='green' outline defaultClass="absolute right-6 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='red' outline defaultClass="absolute right-24 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='blue' outline defaultClass="absolute right-44 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='purple' outline defaultClass="absolute right-64 bottom-36">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+
+<SpeedDial color='blue' gradient defaultClass="absolute left-6 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='green' gradient defaultClass="absolute left-24 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='cyan' gradient defaultClass="absolute left-44 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial color='teal' gradient defaultClass="absolute left-64 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+
+<SpeedDial shadow="blue" gradient color="blue" defaultClass="absolute right-6 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial shadow="green" gradient color="green" defaultClass="absolute right-24 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial shadow="purple" gradient color="purple" defaultClass="absolute right-44 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+<SpeedDial shadow="pink" gradient color="pink" defaultClass="absolute right-64 bottom-64">
+    <SpeedDialButton name="Share">
+        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+    </SpeedDialButton>
+</SpeedDial>
+```
+
+## Square speed dial
 
 Use this example to make the trigger button’s style square instead of a full circle. As `SpeedDialButton` is an instance of `Button` we use the `pill` property to achevie the effect.
 
@@ -76,7 +195,6 @@ Use this example to make the trigger button’s style square instead of a full c
 <script>
   import { SpeedDial, SpeedDialButton } from 'flowbite-svelte'
 </script>
-
 
 <SpeedDial defaultClass="absolute right-6 bottom-6" pill={false}>
     <SpeedDialButton name="Share">
@@ -94,7 +212,7 @@ Use this example to make the trigger button’s style square instead of a full c
 </SpeedDial>
 ```
 
-<Htwo label="Text inside button" />
+## Text inside button
 
 This example can be used to show the descriptive text inside the button instead of a tooltip.
 
@@ -134,7 +252,7 @@ This example can be used to show the descriptive text inside the button instead 
 </SpeedDial>
 ```
 
-<Htwo label="Text outside button" />
+## Text outside button
 
 Use this example to show the text of each button outside of the speed dial as an alternative style.
 
@@ -174,7 +292,7 @@ Use this example to show the text of each button outside of the speed dial as an
 </SpeedDial>
 ```
 
-<Htwo label="Dropdown menu" />
+## Dropdown menu
 
 This example can be used to show a list of menu items instead of buttons when activating the speed dial.
 
@@ -229,10 +347,9 @@ This example can be used to show a list of menu items instead of buttons when ac
 
 ```
 
-<Htwo label="Alternative menu" />
+## Alternative menu
 
 This example can be used to show an alternative style when showing a list of menu items.
-
 
 ```svelte example class="relative h-96"
 <script>
@@ -284,7 +401,7 @@ This example can be used to show an alternative style when showing a list of men
 
 ```
 
-<Htwo label="Alignment - Position" />
+## Alignment - Position
 
 Align the speed dial menu items by using property `placement="top|right|left|bottom"`.
 
@@ -320,7 +437,7 @@ Control the main button position using the flexbox utility classes from Tailwind
 {/each}
 ```
 
-<Htwo label="Triggering" />
+## Triggering
 
 Use the `trigger="click|hover"` attribute of the speed dial component to set which type of action should activate the speed dial: click or hover.
 
@@ -365,18 +482,24 @@ The default trigger type is hover for each speed dial component.
 ```
 
 The default trigger type is hover for each speed dial component.
-<Htwo label="Props" />
+## Props
 
 <p>The component has the following props, type, and default values. See <A href="/pages/types">types 
  page</A> for type information.</p>
 
-<h3 class='text-xl w-full dark:text-white py-4'>Speed Dial</h3>
+### SpeedDial
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items1} rowState='hover' />
 </TableProp>
 
-<Htwo label="References" />
+### SpeedDialButton
+
+<TableProp>
+  <TableDefaultRow items={items2} rowState='hover' />
+</TableProp>
+
+## References
 
 <P>
   <A href="https://flowbite.com/docs/components/speed-dial/" target="_blank" rel="noreferrer" class="link"

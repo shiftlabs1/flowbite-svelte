@@ -1,52 +1,33 @@
 ---
-layout: utilitiesLayout
+layout: componentLayout
 title: Svelte Toolbar - Flowbite
 breadcrumb_title: Toolbar
 dir: Utilities
 description: Use the following Tailwind CSS powered toolbars to show groups of tool buttons
 ---
 
-
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow , MetaTag } from '../utils'
-  
-  import { Toolbar, ToolbarButton, ToolbarGroup, Avatar, Button, Textarea, Breadcrumb, BreadcrumbItem, Heading, A } from '$lib'
+  import { TableProp, TableDefaultRow, GitHubSourceList  } from '../utils'
+  import { Toolbar, ToolbarButton, ToolbarGroup, Avatar, Button, Textarea, Heading, A } from '$lib'
   import { props as items1 } from '../props/Toolbar.json'
   import { props as items2 } from '../props/ToolbarButton.json'
-  let propHeader = ['Name', 'Type', 'Default']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
-  
+  import { props as items3 } from '../props/ToolbarGroup.json'
+
+  // lib files
+  const libFiles = import.meta.glob('../../lib/toolbar/*.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
+<GitHubSourceList {libFiles} />
 
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
+## Setup
 
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-<GitHubSource href="toolbar/Toolbar.svelte">Toolbar</GitHubSource>
-<GitHubSource href="toolbar/ToolbarButton.svelte">ToolbarButton</GitHubSource>
-<GitHubSource href="toolbar/ToolbarGroup.svelte">ToolbarGroup</GitHubSource>
-</ExampleDiv>
-
-
-<Htwo label="Setup" />
-
-```html
+```svelte example hideOutput
 <script>
   import { Toolbar, ToolbarButton, ToolbarGroup } from 'flowbite-svelte';
 </script>
 ```
 
-<Htwo label="Default toolbar" />
+## Default toolbar
 
 ```svelte example
 <script>
@@ -60,7 +41,7 @@ description: Use the following Tailwind CSS powered toolbars to show groups of t
 </Toolbar>
 ```
 
-<Htwo label="Colored toolbars" />
+## Colored toolbars
 
 ```svelte example class="space-y-4"
 <script>
@@ -79,7 +60,7 @@ description: Use the following Tailwind CSS powered toolbars to show groups of t
 </Toolbar>
 ```
 
-<Htwo label="Toolbar with groups" />
+## Toolbar with groups
 
 ```svelte example
 <script>
@@ -115,7 +96,7 @@ description: Use the following Tailwind CSS powered toolbars to show groups of t
 </Toolbar>
 ```
 
-<Htwo label="WYSIWYG Editor" />
+## WYSIWYG Editor
 
 If you want to add other actions as buttons alongside your textarea component, such as with a WYSIWYG editor, then you can use the example below.
 
@@ -143,7 +124,7 @@ If you want to add other actions as buttons alongside your textarea component, s
   <Button>Publish post</Button>
 </form>
 ```
-<Htwo label="Comment box" />
+## Comment box
 
 Most often the textarea component is used as the main text field input element in comment sections. Use this example to also apply a helper text and buttons below the textarea itself.
 
@@ -167,7 +148,7 @@ Most often the textarea component is used as the main text field input element i
 <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our <a href="/" class="text-blue-600 dark:text-blue-500 hover:underline">Community Guidelines</a>.</p>
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. 
 See <A class="hover:underline" href="/pages/types">the types page</A>
@@ -175,12 +156,18 @@ for type information.
 
 <Heading tag="h3" customSize="text-xl font-semibold" class="mb-4 mt-8">Toolbar</Heading>
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items1} rowState='hover' />
 </TableProp>
 
 <Heading tag="h3" customSize="text-xl font-semibold" class="mb-4 mt-8">ToolbarButton</Heading>
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
+</TableProp>
+
+<Heading tag="h3" customSize="text-xl font-semibold" class="mb-4 mt-8">ToolbarGroup</Heading>
+
+<TableProp>
+  <TableDefaultRow items={items3} rowState='hover' />
 </TableProp>

@@ -6,64 +6,49 @@ dir: Components
 description: The skeleton component can be used as an alternative loading indicator to the spinner by mimicking the content that will be loaded such as text, images, or video
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Heading, P, A } from '$lib'
-  import { props as items }  from '../props/ListPlaceholder.json'
-  import { props as items2 }  from '../props/Skeleton.json'
-  import { props as items3 }  from '../props/TestimonialPlaceholder.json'
-  import { props as items4 }  from '../props/TextPlaceholder.json'
-  import { props as items5 }  from '../props/WidgetPlaceholder.json'
-  let propHeader = ['Name', 'Type', 'Default']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+  import { GitHubSourceList, TableProp, TableDefaultRow, } from '../utils'
+  import { P, A } from '$lib'
+  import { props as items1 }  from '../props/CardPlaceholder.json'
+  import { props as items2 }  from '../props/ImagePlaceholder.json'
+  import { props as items3 }  from '../props/ListPlaceholder.json'
+  import { props as items4 }  from '../props/Skeleton.json'
+  import { props as items5 }  from '../props/TestimonialPlaceholder.json'
+  import { props as items6 }  from '../props/TextPlaceholder.json'
+  import { props as items7 }  from '../props/VideoPlaceholder.json'
+  import { props as items8 }  from '../props/WidgetPlaceholder.json'
+
+  // lib files
+  const libFiles = import.meta.glob('../../lib/skeleton/*.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
+<GitHubSourceList {libFiles} />
 
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
+Use the skeleton component to indicate a loading status with placeholder elements that look very similar to the type of content that is being loaded such as paragraphs, images, videos, and more.
 
-<CompoDescription>{description}</CompoDescription>
+## Setup
 
-<ExampleDiv>
-<GitHubSource href="skeleton/CardPlaceholder.svelte">CardPlaceholder</GitHubSource>
-<GitHubSource href="skeleton/ImagePlaceholder.svelte">ImagePlaceholder</GitHubSource>
-<GitHubSource href="skeleton/CardPlaceListPlaceholderholder.svelte">ListPlaceholder</GitHubSource>
-<GitHubSource href="skeleton/Skeleton.svelte">Skeleton</GitHubSource>
-<GitHubSource href="skeleton/TestimonialPlaceholder.svelte">TestimonialPlaceholder</GitHubSource>
-<GitHubSource href="skeleton/TextPlaceholder.svelte">TextPlaceholder</GitHubSource>
-<GitHubSource href="skeleton/VideoPlaceholder.svelte">VideoPlaceholder</GitHubSource>
-<GitHubSource href="skeleton/WidgetPlaceholder.svelte">WidgetPlaceholder</GitHubSource>
-</ExampleDiv>
-
-Use the skeleton component to indicate a loading status with placeholder elements that look very similar to the type of content that is being loaded such as paragraphs, heading, images, videos, and more.
-
-<Htwo label="Setup" />
-
-```html
+```svelte example hideOutput
 <script>
   import { CardPlaceholder, ImagePlaceholder, ListPlaceholder, Skeleton, TestimonialPlaceholder, TextPlaceholder, VideoPlaceholder, WidgetPlaceholder } from 'flowbite-svelte'
 </script>
 ```
 
-<Htwo label="Default skeleton" />
+## Default skeleton
 
 ```svelte example
 <script>
   import { Skeleton } from 'flowbite-svelte'
 </script>
 
-<Skeleton />
+  <Skeleton size="sm" class="my-8" />
+  <Skeleton size="md" class="my-8" />
+  <Skeleton size="lg" class="my-8" />
+  <Skeleton size="xl" class="my-8" />
+  <Skeleton size="xxl" class="mt-8 mb-2.5" />
 ```
 
-<Htwo label="Image placeholder " />
+## Image placeholder 
 
 ```svelte example
 <script>
@@ -71,9 +56,10 @@ Use the skeleton component to indicate a loading status with placeholder element
 </script>
 
 <ImagePlaceholder />
+<ImagePlaceholder imgHeight={60} class='mt-8'/>
 ```
 
-<Htwo label="Video placeholder" />
+## Video placeholder
 
 ```svelte example
 <script>
@@ -81,9 +67,13 @@ Use the skeleton component to indicate a loading status with placeholder element
 </script>
 
 <VideoPlaceholder />
+<VideoPlaceholder size='md' class='mt-8'/>
+<VideoPlaceholder size='lg' class='mt-8'/>
+<VideoPlaceholder size='xl' class='mt-8'/>
+<VideoPlaceholder size='xxl' class='mt-8'/>
 ```
 
-<Htwo label="Text placeholder" />
+## Text placeholder
 
 ```svelte example
 <script>
@@ -91,9 +81,13 @@ Use the skeleton component to indicate a loading status with placeholder element
 </script>
 
 <TextPlaceholder />
+<TextPlaceholder size='md' class='mt-8'/>
+<TextPlaceholder size='lg' class='mt-8'/>
+<TextPlaceholder size='xl' class='mt-8'/>
+<TextPlaceholder size='xxl' class='mt-8'/>
 ```
 
-<Htwo label="Card placeholder" />
+## Card placeholder
 
 ```svelte example
 <script>
@@ -101,9 +95,13 @@ Use the skeleton component to indicate a loading status with placeholder element
 </script>
 
 <CardPlaceholder />
+<CardPlaceholder size='md' class='mt-8'/>
+<CardPlaceholder size='lg' class='mt-8'/>
+<CardPlaceholder size='xl' class='mt-8'/>
+<CardPlaceholder size='xxl' class='mt-8'/>
 ```
 
-<Htwo label="Widget placeholder" />
+## Widget placeholder
 
 ```svelte example
 <script>
@@ -113,7 +111,7 @@ Use the skeleton component to indicate a loading status with placeholder element
 <WidgetPlaceholder />
 ```
 
-<Htwo label="List placeholder" />
+## List placeholder
 
 ```svelte example
 <script>
@@ -123,7 +121,7 @@ Use the skeleton component to indicate a loading status with placeholder element
 <ListPlaceholder />
 ```
 
-<Htwo label="Testimonial placeholder" />
+## Testimonial placeholder
 
 ```svelte example
 <script>
@@ -133,41 +131,59 @@ Use the skeleton component to indicate a loading status with placeholder element
 <TestimonialPlaceholder />
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. See <A href="/pages/types">types page</A> for type information.
 
-<h3 class='text-xl w-full dark:text-white py-4'>ListPlaceholder</h3>
+### CardPlaceholder
 
-<TableProp header={propHeader} {divClass} {theadClass}>
-  <TableDefaultRow {items} rowState='hover' />
+<TableProp>
+  <TableDefaultRow items={items1} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>Skeleton</h3>
+### ImagePlaceholder
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>TestimonialPlaceholder</h3>
+### ListPlaceholder
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>TextPlaceholder</h3>
+### Skeleton
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>WidgetPlaceholder</h3>
+### TestimonialPlaceholder
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={items5} rowState='hover' />
 </TableProp>
 
-<Htwo label="References" />
+### TextPlaceholder
+
+<TableProp>
+  <TableDefaultRow items={items6} rowState='hover' />
+</TableProp>
+
+### VideoPlaceholder
+
+<TableProp>
+  <TableDefaultRow items={items7} rowState='hover' />
+</TableProp>
+
+### WidgetPlaceholder
+
+<TableProp>
+  <TableDefaultRow items={items8} rowState='hover' />
+</TableProp>
+
+## References
 
 <P>
   <A href="https://flowbite.com/docs/components/skeleton/" target="_blank" rel="noreferrer" class="link"

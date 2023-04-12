@@ -1,45 +1,25 @@
 ---
-layout: utilitiesLayout
+layout: componentLayout
 title: Svelte Close Button - Flowbite
 breadcrumb_title: Close button
 dir: Utilities
 description: The CloseButton components are used throughout the library and you can use it for your app as well
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-	import {
-		Htwo,
-		ExampleDiv,
-		GitHubSource,
-		CompoDescription,
-		TableProp,
-		TableDefaultRow
-	, MetaTag } from '../utils';
-	
-	import { Breadcrumb, BreadcrumbItem, Heading, A } from '$lib';
+	import { TableProp, TableDefaultRow, GitHubSourceList } from '../utils';
+	import { A } from '$lib';
 	import { props as items } from '../props/CloseButton.json';
-	let propHeader = ['Name', 'Type', 'Default'];
+
 	let divClass = 'w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4';
 	let theadClass = 'text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white';
+  // lib files
+  const libFiles = import.meta.glob('../../lib/utils/CloseButton.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
+<GitHubSourceList {libFiles} />
 
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-	<GitHubSource href="utils/CloseButton.svelte">CloseButton</GitHubSource>
-</ExampleDiv>
-
-<Htwo label="CloseButton" />
+## CloseButton
 
 Use `CloseButton` component to close a component.
 
@@ -65,12 +45,12 @@ Use `CloseButton` component to close a component.
 {/if}
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. 
 See <A class="hover:underline" href="/pages/types">the types page</A>
 for type information.
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
 	<TableDefaultRow {items} rowState="hover" />
 </TableProp>

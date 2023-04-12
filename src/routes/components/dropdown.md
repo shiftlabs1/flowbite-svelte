@@ -2,57 +2,42 @@
 layout: componentLayout
 title: Svelte Dropdown - Flowbite
 breadcrumb_title: Dropdown
-dir: Component
+dir: Components
 description: Get started with the dropdown component to show a list of menu items when clicking on the trigger element based on multiple layouts, styles, and placements
 ---
 
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Badge, Heading, P, A  } from '$lib'
-  // Props table
+  import { GitHubSourceList, TableProp, TableDefaultRow, } from '../utils'
+  import { Badge, P, A  } from '$lib'
+
   import { props as propItems} from '../props/Dropdown.json'
   import { props as propItems2} from '../props/DropdownDivider.json'
   import { props as propItems3} from '../props/DropdownHeader.json'
   import { props as propItems4} from '../props/DropdownItem.json'
-  let propHeader = ['Name', 'Type', 'Default']
+
   let slotHeader = ['Name', 'Description']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+
   // slot
   let slotItems = [['header', 'Dropdown fixed top element.'],['footer','Dropdown fixed bottom element.']]
   let slotDropdownHeader = [['default', 'Dropdown header content.']]
   let slotDropdownItem = [['default', 'Dropdown item content.']]
+  // lib files
+  const libFiles = import.meta.glob('../../lib/dropdowns/*.svelte')
 </script>
 
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
-
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-<GitHubSource href="dropdowns/Dropdown.svelte">Dropdown</GitHubSource>
-<GitHubSource href="dropdowns/DropdownItem.svelte">DropdownItem</GitHubSource>
-<GitHubSource href="dropdowns/DropdownDivider.svelte">DropdownDivider</GitHubSource>
-<GitHubSource href="dropdowns/DropdownHeader.svelte">DropdownHeader</GitHubSource>
-</ExampleDiv>
+<GitHubSourceList {libFiles} />
 
 The dropdown component can be used to show a list of menu items when clicking on an element such as a button and hiding it when clicking outside of the triggering element.
 
-<Htwo label="Setup" />
+## Setup
 
-```html
+```svelte example hideOutput
 <script>
   import { Dropdown, DropdownItem, DropdownDivider, DropdownHeader } from 'flowbite-svelte'
 </script>
 ```
 
-<Htwo label="Examples" />
+## Examples
 
 If you want to show a dropdown menu when clicking on an element add the `Dropdown` and `DropdownItem` components.
 
@@ -70,7 +55,7 @@ If you want to show a dropdown menu when clicking on an element add the `Dropdow
 </Dropdown>
 ```
 
-<Htwo label="Dropdown divider" />
+## Dropdown divider
 
 You can use the `DropdownDivider` component to add separate elements inside the dropdown menu.
 Note that you have a natural divider between main content of the `Dropdown` and its header and footer.
@@ -89,7 +74,7 @@ Note that you have a natural divider between main content of the `Dropdown` and 
 </Dropdown>
 ```
 
-<Htwo label="Dropdown header" />
+## Dropdown header
 
 Use this example to show extra information outside of the list of menu items inside the dropdown.
 
@@ -111,7 +96,7 @@ Use this example to show extra information outside of the list of menu items ins
 </Dropdown>
 ```
 
-<Htwo label="Multi-level dropdown" />
+## Multi-level dropdown
 
 Use this example to enable multi-level dropdown menus by adding stacked elements inside of each other.
 
@@ -134,7 +119,7 @@ Use this example to enable multi-level dropdown menus by adding stacked elements
 </Dropdown>
 ```
 
-<Htwo label="Programatic open/close" />
+## Programatic open/close
 
 When you want to control your dropdown open status via javascript code you can bind to `open` property.
 
@@ -158,7 +143,7 @@ When you want to control your dropdown open status via javascript code you can b
 </Dropdown>
 ```
 
-<Htwo label="Dropdown with checkbox" />
+## Dropdown with checkbox
 
 Add multiple checkbox elements inside your dropdown menu to enable more advanced input interaction.
 
@@ -181,7 +166,7 @@ Add multiple checkbox elements inside your dropdown menu to enable more advanced
 </Dropdown>
 ```
 
-<Htwo label="Checkbox: Background hover" />
+### Background hover
 
 Use this example to update the background color of a menu item when using a list of checkbox elements.
 
@@ -204,7 +189,7 @@ Use this example to update the background color of a menu item when using a list
 </Dropdown>
 ```
 
-<Htwo label="Checkbox: Helper text" />
+### Helper text
 
 Add an extra helper text to each checkbox element inside the dropdown menu list with this example.
 
@@ -230,7 +215,7 @@ Add an extra helper text to each checkbox element inside the dropdown menu list 
 </Dropdown>
 ```
 
-<Htwo label="Dropdown with radio" />
+## Dropdown with radio
 
 Add multiple radio elements inside your dropdown menu to enable more advanced input interaction.
 
@@ -254,7 +239,7 @@ Add multiple radio elements inside your dropdown menu to enable more advanced in
 </Dropdown>
 ```
 
-<Htwo label="Radio: Background hover" />
+### Background hover
 
 Use this example to update the background color of a menu item when using a list of radio elements.
 
@@ -278,7 +263,7 @@ Use this example to update the background color of a menu item when using a list
 </Dropdown>
 ```
 
-<Htwo label="Radio: Helper text" />
+### Helper text
 
 Add an extra helper text to each radio element inside the dropdown menu list with this example.
 
@@ -305,7 +290,7 @@ Add an extra helper text to each radio element inside the dropdown menu list wit
 </Dropdown>
 ```
 
-<Htwo label="Dropdown with toggle switch" />
+## Dropdown with toggle switch
 
 Show a list of toggle switch elements inside the dropdown menu to enable a yes or no type of choice.
 
@@ -329,7 +314,7 @@ Show a list of toggle switch elements inside the dropdown menu to enable a yes o
 </Dropdown>
 ```
 
-<Htwo label="Dropdown navbar" />
+## Dropdown navbar
 
 <p>You can also use the dropdown element inside a navigation bar and add a second level of navigation hierarchy, but make sure to use Navbar components.</p>
 
@@ -361,7 +346,7 @@ Show a list of toggle switch elements inside the dropdown menu to enable a yes o
 </Navbar>
 ```
 
-<Htwo label="Dropdown with scrolling" />
+## Dropdown with scrolling
 
 This example can be used when you want to show a long list of items that won’t affect the height of the dropdown menu by enabling a scrolling behaviour.
 
@@ -396,7 +381,7 @@ This example can be used when you want to show a long list of items that won’t
 </Dropdown>
 ```
 
-<Htwo label="Dropdown with search" />
+## Dropdown with search
 
 Use this example if you want to add a search bar inside the dropdown menu to be able to filter through a long list of menu items with scrolling behaviour.
 
@@ -434,21 +419,16 @@ Use this example if you want to add a search bar inside the dropdown menu to be 
 </Dropdown>
 ```
 
-<Htwo label="Menu icon" />
+## Menu icon
 
 Use the menu icon trigger element on components such as cards as an alternative element to the button.
 
 ```svelte example class="flex justify-center items-start gap-4 h-60"
 <script>
-  import { Button, Dropdown, DropdownItem, ToolbarButton, DropdownDivider } from 'flowbite-svelte'
+  import { Button, Dropdown, DropdownItem, ToolbarButton, MenuButton, DropdownDivider } from 'flowbite-svelte'
 </script>
-
-<ToolbarButton class="dots-menu text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
-</ToolbarButton>
-<ToolbarButton class="dots-menu text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" /></svg>
-</ToolbarButton>
+<MenuButton class="dots-menu dark:text-white" />
+<MenuButton class="dots-menu dark:text-white" vertical />
 <Dropdown triggeredBy=".dots-menu">
   <DropdownItem>Dashboard</DropdownItem>
   <DropdownItem>Settings</DropdownItem>
@@ -457,7 +437,7 @@ Use the menu icon trigger element on components such as cards as an alternative 
 </Dropdown>
 ```
 
-<Htwo label="Notification bell" />
+## Notification bell
 
 Use this example to show a list of notifications inside your application by providing more detailed information such as the user avatar, content and time of notification triggered by a notification bell icon.
 
@@ -473,7 +453,7 @@ Use this example to show a list of notifications inside your application by prov
   </div>
 </div>
 <Dropdown triggeredBy="#bell" class="w-full max-w-sm rounded divide-y divide-gray-100 shadow dark:bg-gray-800 dark:divide-gray-700">
-  <div slot="header" class="text-center py-2 font-bold text-center">Notifications</div>
+  <div slot="header" class="text-center py-2 font-bold">Notifications</div>
   <DropdownItem class="flex space-x-4">
     <Avatar src="/images/profile-picture-1.webp" dot={{color:'bg-gray-300'}} rounded />
     <div class="pl-3 w-full">
@@ -504,7 +484,7 @@ Use this example to show a list of notifications inside your application by prov
 </Dropdown>
 ```
 
-<Htwo label="User avatar" />
+## User avatar
 
 This example can be used to show a list of menu items and options when a user is logged into your application.
 
@@ -513,7 +493,7 @@ This example can be used to show a list of menu items and options when a user is
   import { Button, Dropdown, DropdownItem, Avatar, DropdownHeader, DropdownDivider } from 'flowbite-svelte'
 </script>
 
-<Avatar class="acs" src="/images/profile-picture-3.webp" dot={{color:'bg-green-400'}} />
+<Avatar class="acs" src="/images/profile-picture-3.webp" dot={{color:'green'}} />
 <Dropdown triggeredBy=".acs">
   <div slot="header" class="px-4 py-2">
     <span class="block text-sm text-gray-900 dark:text-white"> Bonnie Green </span>
@@ -526,7 +506,7 @@ This example can be used to show a list of menu items and options when a user is
 </Dropdown>
 ```
 
-<Htwo label="Avatar with name" />
+## Avatar with name
 
 Use this example to also show the name or email of the user next to the avatar for the dropdown menu.
 
@@ -551,7 +531,7 @@ Use this example to also show the name or email of the user next to the avatar f
 </Dropdown>
 ```
 
-<Htwo label="Sizes" />
+## Sizes
 
 <p>The dropdown menus work with buttons of all sizes including smaller or larger ones.</p>
 
@@ -570,7 +550,7 @@ Use this example to also show the name or email of the user next to the avatar f
 <Button class="sizes" size="lg"><Chevron>Large dropdown</Chevron></Button>
 ```
 
-<Htwo label="Placement" />
+## Placement
 
 You can also use the `placement={top|right|bottom|left}` options to choose the placement of the dropdown menu. By default the positioning is set to the bottom side of the button.
 
@@ -598,7 +578,7 @@ You can also use the `placement={top|right|bottom|left}` options to choose the p
 </div>
 ```
 
-<Htwo label="Double placement"/>
+## Double placement
 
 ```svelte example class="flex justify-center items-center gap-2 h-96"
 <script>
@@ -616,7 +596,7 @@ You can also use the `placement={top|right|bottom|left}` options to choose the p
 </Dropdown>
 ```
 
-<Htwo label="Events" />
+## Events
 
 `DropdownItem` renders to link or button wrapped with `<li/>` element depending whether you supplied the `href` property.
 Therefore you can catch standard events on it like `on:click`.
@@ -638,56 +618,56 @@ Therefore you can catch standard events on it like `on:click`.
 </Dropdown>
 ```
 
-<Htwo label="Props" />
+## Props
 
 <p>The component has the following props, type, and default values. See <A href="/pages/types">types 
  page</A> for type information.</p>
 
-<h3 class='text-xl w-full dark:text-white py-4'>Dropdown</h3>
+### Dropdown
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={propItems} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>DropdownDivider</h3>
+### DropdownDivider
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={propItems2} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>DropdownHeader</h3>
+### DropdownHeader
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={propItems3} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>DropdownItem</h3>
+### DropdownItem
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow items={propItems4} rowState='hover' />
 </TableProp>
 
-<Htwo label="Slots" />
+## Slots
 
-<h3 class='text-xl w-full dark:text-white py-4'>Dropdown</h3>
+### Dropdown
 
-<TableProp header={slotHeader} {divClass} {theadClass}>
+<TableProp header={slotHeader}>
   <TableDefaultRow items={slotItems} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>DropdownDivider</h3>
+### DropdownDivider
 
-<TableProp header={slotHeader} {divClass} {theadClass}>
+<TableProp header={slotHeader}>
   <TableDefaultRow items={slotDropdownHeader} rowState='hover' />
 </TableProp>
 
-<h3 class='text-xl w-full dark:text-white py-4'>DropdownItem</h3>
+### DropdownItem
 
-<TableProp header={slotHeader} {divClass} {theadClass}>
+<TableProp header={slotHeader}>
   <TableDefaultRow items={slotDropdownItem} rowState='hover' />
 </TableProp>
 
-<Htwo label="Forwarded Events: DropdownItem" />
+## Forwarded Events: DropdownItem
 
 <div class="flex flex-wrap gap-2">
 <Badge large={true}>on:blur</Badge>
@@ -700,11 +680,10 @@ Therefore you can catch standard events on it like `on:click`.
 <Badge large={true}>on:mouseleave</Badge>
 </div>
 
-<Htwo label="References" />
+## References
 
 <P>
   <A href="https://flowbite.com/docs/components/dropdowns/" target="_blank" rel="noreferrer" class="link"
     >Flowbite Dropdown</A
   >
 </P>
-  

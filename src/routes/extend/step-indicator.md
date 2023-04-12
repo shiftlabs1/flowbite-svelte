@@ -6,46 +6,29 @@ dir: Components
 description: Use the step indicator component to show the progress of a process.
 ---
 
-<MetaTag {breadcrumb_title} {title} {dir} {description}/>
-
 <script>
-  import { Htwo, ExampleDiv, GitHubSource, CompoDescription, TableProp, TableDefaultRow, MetaTag } from '../utils'
-  
-  import { Breadcrumb, BreadcrumbItem, Heading, P, A } from '$lib'
+  import {  TableProp, TableDefaultRow,  } from '../utils'
+  import { P, A } from '$lib'
   import { props as items } from '../props/StepIndicator.json'
-  // Props table
-  let propHeader = ['Name', 'Type', 'Default']
-  let divClass='w-full relative overflow-x-auto shadow-md sm:rounded-lg py-4'
-  let theadClass ='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'
+
+
+  // lib files
+  const libFiles = import.meta.glob('../../lib/steps/*.svelte')
 </script>
-
-<Breadcrumb class="pt-16 py-8">
-  <BreadcrumbItem href="/" home >Home</BreadcrumbItem>
-  <BreadcrumbItem>{dir}</BreadcrumbItem>
-  <BreadcrumbItem>{breadcrumb_title}</BreadcrumbItem>
-</Breadcrumb>
-
-<Heading class="mb-2" tag="h1" customSize="text-3xl">{title}</Heading>
-
-<CompoDescription>{description}</CompoDescription>
-
-<ExampleDiv>
-<GitHubSource href="steps/StepIndicator.svelte">Step Indicator</GitHubSource>
-</ExampleDiv>
 
 The Step Indicator component is a simple component to show the progress of a process. It can be used to show the progress of a multi-step form or a multi-step process.
 
-<Htwo label="Setup" />
+## Setup
 
 Import the `StepIndicator` component in a script tag.
 
-```html
+```svelte example hideOutput
 <script>
   import { StepIndicator } from 'flowbite-svelte'
 </script>
 ```
 
-<Htwo label="Default step indicator" />
+## Default step indicator
 
 Use the following example of a step indicator element to show a progress of step 2 out of 5.
 
@@ -65,7 +48,7 @@ Use the following example of a step indicator element to show a progress of step
 <StepIndicator {currentStep} {steps}/>
 ```
 
-<Htwo label="Glow" />
+## Glow
 
 Use the `glow` prop to add a glow effect to the current step.
 
@@ -85,7 +68,7 @@ Use the `glow` prop to add a glow effect to the current step.
 <StepIndicator {currentStep} {steps} glow/>
 ```
 
-<Htwo label="Hide label" />
+## Hide label
 
 Use the `hideLabel` prop to hide the label of the current step.
 
@@ -105,7 +88,7 @@ Use the `hideLabel` prop to hide the label of the current step.
 <StepIndicator {currentStep} {steps} hideLabel/>
 ```
 
-<Htwo label="Sizes" />
+## Sizes
 
 Use the `size` prop to change the size of a step indicator.
 
@@ -143,7 +126,7 @@ Use the `size` prop to change the size of a step indicator.
 </div>
 ```
 
-<Htwo label="Colors" />
+## Colors
 
 Use the `color` prop to change the color of a step indicator.
 
@@ -201,10 +184,10 @@ Use the `color` prop to change the color of a step indicator.
 </div>
 ```
 
-<Htwo label="Props" />
+## Props
 
 The component has the following props, type, and default values. See <A href="/pages/types">types page</A> for type information.
 
-<TableProp header={propHeader} {divClass} {theadClass}>
+<TableProp>
   <TableDefaultRow {items} rowState='hover' />
 </TableProp>

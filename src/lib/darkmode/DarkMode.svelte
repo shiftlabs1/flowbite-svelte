@@ -1,25 +1,24 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import classNames from 'classnames';
 
   export let btnClass =
     'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5';
 
-  const toggleTheme = () => {
-    const isDark = window.document.documentElement.classList.toggle('dark');
-    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-  };
-</script>
+  let toggleTheme: () => void;
 
-<svelte:head>
-  <script>
-    if (window) {
-      localStorage.getItem('color-theme') === 'dark' ||
-      (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ? window.document.documentElement.classList.add('dark')
-        : window.document.documentElement.classList.remove('dark');
-    }
-  </script>
-</svelte:head>
+  onMount(() => {
+    localStorage.getItem('color-theme') === 'dark' ||
+    (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ? window.document.documentElement.classList.add('dark')
+      : window.document.documentElement.classList.remove('dark');
+
+    toggleTheme = () => {
+      const isDark = window.document.documentElement.classList.toggle('dark');
+      localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+    };
+  });
+</script>
 
 <button
   on:click={toggleTheme}
@@ -38,7 +37,7 @@
       </svg>
     </slot>
   </span>
-  <span class="dark:hidden">
+  <span class="block dark:hidden">
     <slot name="darkIcon">
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
